@@ -131,42 +131,6 @@
                 </div>
 
                 <?php endforeach; ?>
-                <div class="category-item zoomscal-hov overlay-content">
-                    <a href="shop-left-sidebar.html" class="category-link clr-none">
-                        <div class="zoom-scal"><img class="blur-up lazyload"
-                                data-src="assets/images/collection/demo4-ct2-img2.jpg"
-                                src="assets/images/collection/demo4-ct2-img2.jpg" alt="collection" title=""
-                                width="416" height="416" /></div>
-                        <div class="details whiteText text-center p-0">
-                            <h4 class="category-title h2 text-uppercase mb-2 pb-1">Camera</h4>
-                            <span class="category-btn btn-brd fw-500 text-uppercase">Shop Now</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="category-item zoomscal-hov overlay-content">
-                    <a href="shop-left-sidebar.html" class="category-link clr-none">
-                        <div class="zoom-scal"><img class="blur-up lazyload"
-                                data-src="assets/images/collection/demo4-ct2-img3.jpg"
-                                src="assets/images/collection/demo4-ct2-img3.jpg" alt="collection" title=""
-                                width="416" height="416" /></div>
-                        <div class="details whiteText text-center p-0">
-                            <h4 class="category-title h2 text-uppercase mb-2 pb-1">Kicthen Essentials</h4>
-                            <span class="category-btn btn-brd fw-500 text-uppercase">Shop Now</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="category-item zoomscal-hov overlay-content">
-                    <a href="shop-left-sidebar.html" class="category-link clr-none">
-                        <div class="zoom-scal"><img class="blur-up lazyload"
-                                data-src="assets/images/collection/demo4-ct2-img4.jpg"
-                                src="assets/images/collection/demo4-ct2-img4.jpg" alt="collection" title=""
-                                width="416" height="416" /></div>
-                        <div class="details whiteText text-center p-0">
-                            <h4 class="category-title h2 text-uppercase mb-2 pb-1">Smart Wacthes</h4>
-                            <span class="category-btn btn-brd fw-500 text-uppercase">Shop Now</span>
-                        </div>
-                    </a>
-                </div>
             </div>
         </div>
     </section>
