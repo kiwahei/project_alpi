@@ -39,7 +39,20 @@ class Trx extends CI_Controller {
             'created_at' => date('Y-m-d H:i:s'),
         ];
       
-        $this->transaction_model->add($transaction, $transaction_items);
+        $insertId = $this->transaction_model->add($transaction, $transaction_items);
+        $success = true;
+        if ($success) {
+            $response = array(
+                'status' => 'success',
+                'redirect_url' => base_url('trx/status/'.$insertId) // URL tujuan
+            );
+        } else {
+            $response = array(
+                'status' => 'error',
+                'message' => 'Checkout failed, please try again.'
+            );
+        }
+        echo json_encode($response);
     }
 
     public function status($transaction_id) {
@@ -58,12 +71,13 @@ class Trx extends CI_Controller {
 
         $data["products"] = $products;
 
-        // 1 waiting
-        if($transaction->status == 1) {
+        if($transaction->status == "WAITING_PAYMENT") {
             $this->load->view('web/trx/waiting', $data);
         }else{
             $this->load->view('web/trx/status', $data);
         }
+
+       
     }
 
     public function upload($transaction_id) {
@@ -81,12 +95,14 @@ class Trx extends CI_Controller {
         if (!$this->upload->do_upload('image')) {
             // Jika gagal upload, tampilkan pesan error
             $error = array('error' => $this->upload->display_errors());
-            $this->load->view('admin/category/add', $error);
+            // $this->load->view('admin/category/add', $error);
         } else {
             // Jika sukses upload, ambil data file yang diupload
             $data = array('upload_data' => $this->upload->data());
             $this->transaction_model->uploadPaymentPhoto($transaction_id, $config['file_name']);
-            $this->load->view('upload_success', $data);
+            // $this->load->view('upload_success', $data);
         }
+        redirect(base_url('/trx/status/'.$transaction_id));
+        
     }
 }

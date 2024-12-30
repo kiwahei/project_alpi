@@ -39,6 +39,7 @@ class Transaction_Model extends CI_Model {
             $this->db->insert("transaction_item", $item);
         }
 
+        return $id;
         
     }
 

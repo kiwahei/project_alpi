@@ -242,8 +242,13 @@
                 shippingAddress: $('#shipping-address').val()
             },
             success: function(response) {
-                alert('Success!');
-                // updateCartView(response);
+                if (response.status === 'success') {
+                    // Redirect ke URL tujuan
+                    window.location.href = response.redirect_url;
+                } else {
+                    // Tampilkan pesan error
+                    alert(response.message);
+                }
             }
         });
     });

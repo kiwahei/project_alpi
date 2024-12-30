@@ -45,6 +45,7 @@ class Transaction extends CI_Controller
         $data['trx'] = $trx;
         $data['trxs'] = $transaction_items;
         $this->load->view('admin/transaction/view', $data);
+        
     }
 
     function complete($trxId){
