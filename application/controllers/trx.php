@@ -4,7 +4,7 @@ class Trx extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('transaction_model');
-        $this->load->model('transactionItem_model');
+        $this->load->model('transaction_item_model');
         $this->load->model('cart_model');
         $this->load->model('product_model');
     }
@@ -42,7 +42,7 @@ class Trx extends CI_Controller {
 
     public function status($transaction_id) {
         $user_id = $this->session->userdata('user_id');
-        $trxItems = $this->transactionItem_model->getAllByTransaksi($user_id);
+        $trxItems = $this->transaction_item_model->getAllByTransactionId($user_id);
         $data["trxItems"] = $trxItems;
         $transaction = $this->transaction_model->getById($transaction_id);
         $data["trx"] = $transaction;

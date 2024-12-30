@@ -1,7 +1,7 @@
 <?php 
 
 
-class TransactionItem_Model extends CI_Model {
+class Transaction_Item_Model extends CI_Model {
 
     private $table = "transaction_item";
 
