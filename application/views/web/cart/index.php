@@ -101,6 +101,16 @@
                         </table> 
                     </form>    
                     <!--End Cart Form-->
+                    <div class="row my-4 pt-3">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6 mb-12 cart-col">
+                            <div class="cart-note mb-4">
+                                <h5>Shipping Address</h5>
+                                <label for="cart-note">Fill ur shipping address</label>
+                                <textarea name="note" id="cart-note" class="form-control cart-note-input" rows="3" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+
 
                     <!--Note with Shipping estimates-->
                     <div class="row my-4 pt-3">

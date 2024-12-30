@@ -27,6 +27,12 @@ class User_model extends CI_Model {
         return false; // Return false if authentication fails
     }
 
+    public function getById($id){
+        $this->db->where('id_user', $id);
+        $query = $this->db->get('user');
+        return $query->row();
+    }
+
     // Create a new user
     public function create_user($data)
     {

@@ -6,12 +6,51 @@ class Transaction extends CI_Controller
     public function __construct() {
         parent::__construct();
         $this->load->model('transaction_model');
+        $this->load->model('transaction_item_model');
+        $this->load->model('product_model');
+        $this->load->model('user_model');
         $this->load->library(['form_validation', 'session']);
 	}
 
     function index(){
-        $data['transactions'] = $this->transaction_model->getAll();
+        $trxs = $this->transaction_model->getAll();
+        for($x = 0; $x < count($trxs); $x++){
+            $user = $this->user_model->getById($trxs[$x]["user_id"]); 
+            $trxs[$x]["user"] = $user;
+        }
+        
+        $data["trxs"] = $trxs;
         $this->load->view('admin/transaction/index', $data);
+    }
+
+    function view($trxId){
+        $trx = $this->transaction_model->getById($trxId);
+        $trxs = $this->transaction_item_model->getAllByTransactionId($trxId);
+
+        $transaction_items = [];
+
+        foreach ($trxs as $t) {
+            $product = $this->product_model->getById($t["product_id"]);
+            
+            $transaction_items[] = [
+                "product_name"=> $product->name,
+                "product_id"=> $t["product_id"],
+                "product_price"=> $product->price,
+                "quantity"=> $t["quantity"],
+                "subtotal" => (int)$product->price * (int)$t["quantity"],
+            ];
+            
+        }
+
+        $data['trx'] = $trx;
+        $data['trxs'] = $transaction_items;
+        $this->load->view('admin/transaction/view', $data);
+    }
+
+    function complete($trxId){
+        $this->transaction_model->complete($trxId);
+        redirect('admin/transaction');
+    
     }
 
     function add(){
@@ -19,8 +58,6 @@ class Transaction extends CI_Controller
     }
 
     function edit($id){
-        
-
         $data['product'] = $this->product_model->getById($id);
         $this->load->view('admin/product/edit', $data);
     }

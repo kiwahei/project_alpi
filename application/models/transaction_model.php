@@ -25,6 +25,12 @@ class Transaction_Model extends CI_Model {
        
     }
 
+    public function complete($trxId){
+        $this->db->set('status', 0);
+        $this->db->where('id', $trxId);
+        $this->db->update($this->table);
+    }
+
     public function add($transaction, $transaction_items){
         $this->db->insert($this->table, $transaction);
         $id = $this->db->insert_id();
@@ -44,6 +50,13 @@ class Transaction_Model extends CI_Model {
         }
 
         return false;
+    }
+
+    public function uploadPaymentPhoto($id, $file){
+        $this->db->set('payment_photo', $file);
+        $this->db->set('status', 2);
+        $this->db->where('id', $id);
+        $this->db->update($this->table);
     }
 
 

@@ -31,11 +31,11 @@
                             <tr>
                         </thead>
                         <tbody>
-                        <?php foreach ($transactions as $t): ?>
+                        <?php foreach ($trxs as $t): ?>
                             <tr>
-                                <td>Test</td>
+                                <td><?= $t["user"]->email ?></td>
                                 <td>
-                                    <a href="<?= base_url() ?>admin/transaction/edit/" class="btn btn-warning">Edit</a>
+                                    <a href="<?= base_url() ?>admin/transaction/view/<?=  $t['id']?>" class="btn btn-success">View</a>
                                     <a href="<?= base_url() ?>admin/transaction/delete/" class="btn btn-danger">Delete</a>
                                 </td>
                             </tr>
