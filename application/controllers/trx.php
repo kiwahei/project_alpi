@@ -11,6 +11,7 @@ class Trx extends CI_Controller {
     public function checkout() {
         $user_id = $this->session->userdata('user_id');
         $note = $this->input->post('note');
+        $shippingAddress = $this->input->post('shippingAddress');
 
 
         $carts = $this->cart_model->getAllByUserId($user_id);
@@ -33,6 +34,7 @@ class Trx extends CI_Controller {
         $transaction = [
             'user_id' => $user_id,
             'note' => $note ,
+            'shipping_address'=> $shippingAddress,
             'status' => 1, 
             'created_at' => date('Y-m-d H:i:s'),
         ];

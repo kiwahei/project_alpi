@@ -106,7 +106,7 @@
                             <div class="cart-note mb-4">
                                 <h5>Shipping Address</h5>
                                 <label for="cart-note">Fill ur shipping address</label>
-                                <textarea name="note" id="cart-note" class="form-control cart-note-input" rows="3" required></textarea>
+                                <textarea name="shipping-address" id="shipping-address" class="form-control cart-note-input" rows="3" required></textarea>
                             </div>
                         </div>
                     </div>
@@ -118,7 +118,7 @@
                             <div class="cart-note mb-4">
                                 <h5>Add a note to your order</h5>
                                 <label for="cart-note">Notes about your order, e.g. special notes for delivery.</label>
-                                <textarea name="note" id="cart-note" class="form-control cart-note-input" rows="3" required></textarea>
+                                <textarea name="note" id="note" class="form-control cart-note-input" rows="3" required></textarea>
                             </div>
                         </div>
                     </div>
@@ -153,7 +153,7 @@
                                 <label for="cart-tearm">I agree with the terms and conditions</label>
                             </div>
                             
-                            <a href="<?= base_url() ?>trx/checkout" id="cartCheckout" class="btn btn-lg my-4 checkout w-100">Proceed To Checkout</a>
+                            <button type="button" id="cartCheckout" class="btn btn-lg my-4 checkout w-100">Proceed To Checkout</button>
                             <div class="paymnet-img text-center"><img src="assets/images/icons/safepayment.png" alt="Payment" width="299" height="28" /></div>
                         </div>                               
                     </div>
@@ -227,16 +227,20 @@
 
 </script>
 
-<!-- <script>
+<script>
     $(document).ready(function() {
     var base_url = "<?= base_url(); ?>";
-    // Add item to cart
+
     $('#cartCheckout').click(function(e) {
         e.preventDefault();
         $.ajax({
-            url: base_url + 'trx/checkout'
+            url: base_url + 'trx/checkout',
             method: 'POST',
             dataType: 'json',
+            data: {
+                note: $('#note').val(),
+                shippingAddress: $('#shipping-address').val()
+            },
             success: function(response) {
                 alert('Success!');
                 // updateCartView(response);
@@ -244,7 +248,7 @@
         });
     });
 });
-</script> -->
+</script>
 
 
 
