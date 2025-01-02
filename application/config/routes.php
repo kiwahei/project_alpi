@@ -142,6 +142,6 @@ $route['pages/lookbook_shop'] = 'pages/lookbook_shop';
 
 ## MENU PAGES: MY ACCOUNT
 $route['pages/forgot_password'] = 'pages/forgot_password';
-$route['pages/login'] = 'pages/login';
+$route['auth/register'] = 'auth/register';
 $route['pages/my_account'] = 'pages/my_account';
-$route['pages/register'] = 'pages/register';
+$route['auth/register'] = 'auth/register';

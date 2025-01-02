@@ -88,26 +88,24 @@
                                     <div class="customer-links">
                                         <ul class="m-0">
                                             <?php if ($this->session->userdata('id_user')): ?>
-
                                                 <li>
-                                                    <a href="<?php echo site_url('pages/my_account'); ?>">
+                                                    <a href="<?php echo site_url('auth/my_account'); ?>">
                                                         <i class="icon anm anm-user-cil"></i>My Account
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="<?php echo site_url('pages/logout'); ?>">
+                                                    <a href="<?php echo site_url('auth/logout'); ?>">
                                                         <i class="icon anm anm-sign-out-al"></i>Sign Out
                                                     </a>
                                                 </li>
                                             <?php else: ?>
-
                                                 <li>
-                                                    <a href="<?php echo site_url('pages/login'); ?>">
+                                                    <a href="<?php echo site_url('auth/login'); ?>">
                                                         <i class="icon anm anm-sign-in-al"></i>Sign In
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="<?php echo site_url('pages/register'); ?>">
+                                                    <a href="<?php echo site_url('auth/register'); ?>">
                                                         <i class="icon anm anm-user-al"></i>Register
                                                     </a>
                                                 </li>

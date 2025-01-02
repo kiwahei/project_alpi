@@ -69,12 +69,12 @@
                 <?php else: ?>
                     <!-- Show these links when the user is not logged in -->
                     <li>
-                        <a href="<?php echo site_url('pages/login'); ?>">
+                        <a href="<?php echo site_url('auth/login'); ?>">
                             <i class="icon anm anm-sign-in-al"></i>Sign In
                         </a>
                     </li>
                     <li>
-                        <a href="<?php echo site_url('pages/register'); ?>">
+                        <a href="<?php echo site_url('auth/register'); ?>">
                             <i class="icon anm anm-user-al"></i>Register
                         </a>
                     </li>

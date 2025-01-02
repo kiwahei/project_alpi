@@ -331,7 +331,7 @@
     <div class="login-register pt-2">
         <div class="row">
             <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-                <form method="post" action="<?php echo site_url('pages/register'); ?>">
+                <form method="post" action="<?php echo site_url('auth/register'); ?>">
                     <h2 class="text-center fs-4 mb-3">REGISTER</h2>
 
                     <!-- Display validation errors -->
@@ -386,6 +386,13 @@
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-lg w-100">Sign Up</button>
                     </div>
+
+                    <div class="text-center mt-4">
+                                            <p class="text-muted mb-0">
+                                                have an account? 
+                                                <a href="<?php echo site_url('auth/login'); ?>" class="btn-link">Login Now</a>
+                                            </p>
+                                        </div>
                 </form>
             </div>
         </div>

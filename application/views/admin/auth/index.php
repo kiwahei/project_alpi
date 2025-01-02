@@ -339,10 +339,10 @@
                                 <div class="card shadow-sm border-0">
                                     <div class="card-body p-4">
                                         <!-- Form Open -->
-                                        <?php echo form_open('auth/login', ['class' => 'customer-form']); ?>
+                                        <?php echo form_open('admin/auth/login', ['class' => 'customer-form']); ?>
                                         
                                         <h2 class="text-center fs-4 mb-3">LOGIN</h2>
-                                        <p class="text-center mb-4">If you have an account with us, please log in.</p>
+                                        <p class="text-center mb-4">Admin Log In.</p>
 
                                         <!-- Display error message if login fails -->
                                         <?php if ($this->session->flashdata('error')): ?>
@@ -385,14 +385,6 @@
                                                 class="btn btn-primary btn-lg w-100" 
                                                 value="Sign In" 
                                             />
-                                        </div>
-
-                                        <!-- Additional Links -->
-                                        <div class="text-center mt-4">
-                                            <p class="text-muted mb-0">
-                                                Don't have an account? 
-                                                <a href="<?php echo site_url('auth/register'); ?>" class="btn-link">Register Now</a>
-                                            </p>
                                         </div>
 
                                         <?php echo form_close(); ?>
