@@ -42,6 +42,7 @@ class Trx extends CI_Controller {
         $insertId = $this->transaction_model->add($transaction, $transaction_items);
         $success = true;
         if ($success) {
+            $this->cart_model->deleteByUserId($user_id);
             $response = array(
                 'status' => 'success',
                 'redirect_url' => base_url('trx/status/'.$insertId) // URL tujuan

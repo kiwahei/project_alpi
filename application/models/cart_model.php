@@ -21,6 +21,11 @@ class Cart_Model extends CI_Model {
     
     }
 
+    public function deleteByUserId($userId){
+        $this->db->where('user_id', $userId);
+        return $this->db->delete($this->table); 
+    }
+
     public function add_to_cart_single($product_id, $user_id) {
         // Ambil detail produk dari database
         $this->db->where('user_id', $user_id);
