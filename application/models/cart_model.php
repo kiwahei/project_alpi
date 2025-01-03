@@ -121,6 +121,14 @@ class Cart_Model extends CI_Model {
         return 'Keranjang berhasil diperbarui';
     }
 
+    
+    public function updateQuantity($cartId, $quantity) {
+        $this->db->where('id', $cartId);
+        return $this->db->update('cart', ['quantity' => $quantity]);
+    }
+
+
+
     // Mengambil semua item dalam cart
     public function get_cart_items() {
         return $this->session->userdata('cart');

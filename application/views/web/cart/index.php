@@ -36,7 +36,7 @@
                     <!--End Alert msg-->
 
                     <!--Cart Form-->
-                    <form action="#" method="post" class="cart-table table-bottom-brd">
+                    <form  method="post" class="cart-table table-bottom-brd">
                         <table class="table align-middle">
                             <thead class="cart-row cart-header small-hide position-relative">
                                 <tr>
@@ -74,9 +74,9 @@
                                         <td class="cart-update-wrapper cart-flex-item text-end text-md-center">
                                             <div class="cart-qty d-flex justify-content-end justify-content-md-center">
                                                 <div class="qtyField">
-                                                    <a class="qtyBtn minus" href="#;"><i class="icon anm anm-minus-r"></i></a>
-                                                    <input class="cart-qty-input qty" type="text" name="updates[]" value="<?= $c['quantity'] ?>" pattern="[0-9]*" />
-                                                    <a class="qtyBtn plus" href="#;"><i class="icon anm anm-plus-r"></i></a>
+                                                    <a class="qtyBtn minus" data-cart-id="<?= $c['id'] ?>" href="#;"><i class="icon anm anm-minus-r"></i></a>
+                                                    <input class="cart-qty-input qty" id="comm" data-id="<?= $c['id'] ?>" type="text" name="updates[]" value="<?= $c['quantity'] ?>" pattern="[0-9]*" />
+                                                    <a class="qtyBtn plus" data-cart-id="<?= $c['id'] ?>" href="#;"><i class="icon anm anm-plus-r"></i></a>
                                                 </div>
                                             </div>
                                             <a href="#" title="Remove" class="removeMb d-md-none d-inline-block text-decoration-underline mt-2 me-3">Remove</a>
@@ -101,27 +101,69 @@
                         </table> 
                     </form>    
                     <!--End Cart Form-->
-                    <div class="row my-4 pt-3">
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-6 mb-12 cart-col">
-                            <div class="cart-note mb-4">
-                                <h5>Shipping Address</h5>
-                                <label for="cart-note">Fill ur shipping address</label>
-                                <textarea name="shipping-address" id="shipping-address" class="form-control cart-note-input" rows="3" required></textarea>
-                            </div>
-                        </div>
-                    </div>
 
 
-                    <!--Note with Shipping estimates-->
-                    <div class="row my-4 pt-3">
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-6 mb-12 cart-col">
-                            <div class="cart-note mb-4">
-                                <h5>Add a note to your order</h5>
-                                <label for="cart-note">Notes about your order, e.g. special notes for delivery.</label>
-                                <textarea name="note" id="note" class="form-control cart-note-input" rows="3" required></textarea>
+                    <form action="<?= base_url() ?>trx/checkout" method="post">
+                        <div class="row mb-3 pt-3">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 mb-12 cart-col">
+                                <div class="cart-note">
+                                    <h5>Shipping Method</h5>
+                                    <label for="cart-note">Fill ur shipping address</label>
+                                    <select class="form-control form-select" name="courier" required    >
+                                        <option value="" selected disabled>- SELECT -</option>
+                                        <?php foreach($couriers as $c): ?>
+                                        <option value="<?= $c['id'] ?>"><?= $c['name'] ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
                             </div>
                         </div>
-                    </div>
+
+                        
+                        <div class="row mb-3 pt-3">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 mb-12 cart-col">
+                                <div class="cart-note">
+                                    <h5>Payment Method</h5>
+                                    <label for="cart-note">Fill ur shipping address</label>
+                                    <select class="form-control form-select" name="payment" required>
+                                        <option value="" selected disabled>- SELECT -</option>
+                                        <?php foreach($payments as $c): ?>
+                                        <option value="<?= $c['id']?>"><?= $c['name'] ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                                    
+
+
+                        <div class="row mb-3 pt-3">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 mb-12 cart-col">
+                                <div class="cart-note">
+                                    <h5>Shipping Address</h5>
+                                    <label for="cart-note">Fill ur shipping address</label>
+                                    <textarea name="shippingAddress" id="shipping-address" class="form-control cart-note-input" rows="3" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!--Note with Shipping estimates-->
+                        <div class="row mb-3 pt-3">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 mb-12 cart-col">
+                                <div class="cart-note">
+                                    <h5>Add a note to your order</h5>
+                                    <label for="cart-note">Notes about your order, e.g. special notes for delivery.</label>
+                                    <textarea name="note" id="note" class="form-control cart-note-input" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="d-none" type="submit" id="submit"></button>
+                    </form>
+
+                    
                 </div>
                 <!--End Cart Content-->
 
@@ -168,10 +210,14 @@
 <script>
 
     $(document).ready(function() {
-        calculateTotalCartPrice()
-        setTimeout(calculateSubTotal(), 500);
+        calculate()
       
     })
+
+    function calculate(){
+        calculateTotalCartPrice()
+        setTimeout(calculateSubTotal(), 500);
+    }
 
 
 
@@ -231,28 +277,102 @@
     $(document).ready(function() {
     var base_url = "<?= base_url(); ?>";
 
+    
+
     $('#cartCheckout').click(function(e) {
-        e.preventDefault();
-        $.ajax({
-            url: base_url + 'trx/checkout',
-            method: 'POST',
-            dataType: 'json',
-            data: {
-                note: $('#note').val(),
-                shippingAddress: $('#shipping-address').val()
-            },
-            success: function(response) {
-                if (response.status === 'success') {
-                    // Redirect ke URL tujuan
-                    window.location.href = response.redirect_url;
-                } else {
-                    // Tampilkan pesan error
-                    alert(response.message);
-                }
-            }
-        });
+        $('#submit').click()
+
+        // e.preventDefault();
+        // $.ajax({
+        //     url: base_url + 'trx/checkout',
+        //     method: 'POST',
+        //     dataType: 'json',
+        //     data: {
+        //         note: $('#note').val(),
+        //         shippingAddress: $('#shipping-address').val()
+        //     },
+        //     success: function(response) {
+        //         if (response.status === 'success') {
+        //             // Redirect ke URL tujuan
+        //             window.location.href = response.redirect_url;
+        //         } else {
+        //             // Tampilkan pesan error
+        //             alert(response.message);
+        //         }
+        //     }
+        // });
     });
 });
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        let delayTimer;
+        $('.qtyBtn.plus').on('click', function () {
+            console.log("test")
+            clearTimeout(delayTimer);
+            delayTimer = setTimeout(() => {
+                var cartId = $(this).data('cart-id');
+                var input = $('input[data-id="' + cartId + '"]');
+                var currentQty = parseInt(input.val()); 
+                
+                calculate()
+
+                $.ajax({
+                    url: '<?= base_url("cart/updateQuantity") ?>',
+                    type: 'POST',
+                    data: {
+                        cartId: cartId,
+                        quantity: currentQty
+                    },
+                    success: function (response) {
+                        // if (response.success) {
+                        //     input.val(currentQty + 1); // Update input value
+                        //     updateTotalPrice(productId, response.total_price); // Update total product price
+                        // } else {
+                        //     alert(response.message);
+                        // }
+                    },
+                })
+            }, 300); 
+        })  
+
+        $('.qtyBtn.minus').on('click', function () {
+            console.log("test")
+            clearTimeout(delayTimer);
+            delayTimer = setTimeout(() => {
+                var cartId = $(this).data('cart-id');
+                var input = $('input[data-id="' + cartId + '"]');
+                var currentQty = parseInt(input.val());          
+                calculate()     
+
+                $.ajax({
+                    url: '<?= base_url("cart/updateQuantity") ?>',
+                    type: 'POST',
+                    data: {
+                        cartId: cartId,
+                        quantity: currentQty
+                    },
+                    success: function (response) {
+                        
+
+                        // if (response.success) {
+                        //     input.val(currentQty + 1); // Update input value
+                        //     updateTotalPrice(productId, response.total_price); // Update total product price
+                        // } else {
+                        //     alert(response.message);
+                        // }
+                    },
+                })
+            }, 300); 
+        })  
+
+
+
+        
+    })
+
 </script>
 
 

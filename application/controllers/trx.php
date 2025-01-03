@@ -40,22 +40,23 @@ class Trx extends CI_Controller {
         ];
       
         $insertId = $this->transaction_model->add($transaction, $transaction_items);
-        $success = true;
-        if ($success) {
-            $this->cart_model->deleteByUserId($user_id);
-            $response = array(
-                'status' => 'success',
-                'redirect_url' => base_url('trx/status/'.$insertId) // URL tujuan
-            );
-        } else {
-            $response = array(
-                'status' => 'error',
-                'message' => 'Checkout failed, please try again.'
-            );
-        }
-        echo json_encode($response);
-    }
+        redirect('trx/status/'. $insertId, );
 
+        // $success = true;
+        // if ($success) {
+        //     $this->cart_model->deleteByUserId($user_id);
+        //     $response = array(
+        //         'status' => 'success',
+        //         'redirect_url' => base_url('trx/status/'.$insertId) // URL tujuan
+        //     );
+        // } else {
+        //     $response = array(
+        //         'status' => 'error',
+        //         'message' => 'Checkout failed, please try again.'
+        //     );
+        // }
+       
+    }
     public function status($transaction_id) {
         $user_id = $this->session->userdata('user_id');
         $trxItems = $this->transaction_item_model->getAllByTransactionId($transaction_id);
@@ -73,9 +74,9 @@ class Trx extends CI_Controller {
         $data["products"] = $products;
 
         if($transaction->status == "WAITING_PAYMENT") {
-            $this->load->view('web/trx/waiting', $data);
-        }else{
-            $this->load->view('web/trx/status', $data);
+            $this->load->view('web/trx/waiting-payment', $data);
+        }elseif($transaction->status == "WAITING_CONFIRMATION"){
+            $this->load->view('web/trx/waiting-confirmation', $data);
         }
 
        

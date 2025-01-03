@@ -10,13 +10,18 @@ class Cart extends CI_Controller {
         $this->load->model('category_model');
         $this->load->model('cart_model');
         $this->load->model('product_model');
+        $this->load->model('courier_model');
+        $this->load->model('payment_model');
 	}
 
     public function index() {
         $user_id = $this->session->userdata('user_id');
         $data['menus'] = $this->menu_model->get_menus();
         $data['categories'] = $this->category_model->getAll();
+        $data['couriers'] = $this->courier_model->getAll();
+        $data['payments'] = $this->payment_model->getAll();
         $data['carts'] = $this->cart_model->getAllByUserId($user_id);
+    
         $this->load->view('web/cart/index', $data);
     }
 
@@ -53,5 +58,11 @@ class Cart extends CI_Controller {
         $this->cart_model->clear($user_id);
         $this->session->set_flashdata('message', 'Data berhasil dihapus!');
         redirect('cart');
+    }
+
+    public function updateQuantity(){
+        $quantity = $this->input->post('quantity');
+        $cartId = $this->input->post('cartId');
+        $this->cart_model->updateQuantity($cartId, $quantity);
     }
 }

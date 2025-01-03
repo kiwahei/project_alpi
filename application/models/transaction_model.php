@@ -55,7 +55,7 @@ class Transaction_Model extends CI_Model {
 
     public function uploadPaymentPhoto($id, $file){
         $this->db->set('payment_photo', $file);
-        $this->db->set('status', 2);
+        $this->db->set('status', "WAITING_CONFIRMATIOn");
         $this->db->where('id', $id);
         $this->db->update($this->table);
     }
