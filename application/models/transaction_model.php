@@ -31,15 +31,17 @@ class Transaction_Model extends CI_Model {
         $this->db->update($this->table);
     }
 
-    public function add($transaction, $transaction_items){
+    public function add($userId, $transaction, $transaction_items){
+        $random = rand(100, 999);
+        $customId = "ELGA-".$userId.date("YmdHis").$random;
+        $transaction["id"] = $customId;
         $this->db->insert($this->table, $transaction);
-        $id = $this->db->insert_id();
         foreach($transaction_items as $item){
-            $item['transaction_id'] = $id;
+            $item['transaction_id'] = $customId;
             $this->db->insert("transaction_item", $item);
         }
 
-        return $id;
+        return $customId;
         
     }
 
