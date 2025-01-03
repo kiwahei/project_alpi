@@ -7,11 +7,15 @@ class Trx extends CI_Controller {
         $this->load->model('transaction_item_model');
         $this->load->model('cart_model');
         $this->load->model('product_model');
+        $this->load->model('courier_model');
+        $this->load->model('payment_model');
     }
     public function checkout() {
         $user_id = $this->session->userdata('user_id');
         $note = $this->input->post('note');
         $shippingAddress = $this->input->post('shippingAddress');
+        $courier_id = $this->input->post('courier');
+        $payment_id = $this->input->post('payment');
 
 
         $carts = $this->cart_model->getAllByUserId($user_id);
@@ -35,11 +39,14 @@ class Trx extends CI_Controller {
             'user_id' => $user_id,
             'note' => $note ,
             'shipping_address'=> $shippingAddress,
-            'status' => 1, 
+            'status' => "WAITING_PAYMENT", 
+            "courier_id"=> $courier_id,
+            "payment_id"=> $payment_id,
             'created_at' => date('Y-m-d H:i:s'),
         ];
       
-        $insertId = $this->transaction_model->add($transaction, $transaction_items);
+        $insertId = $this->transaction_model->add($user_id, $transaction, $transaction_items);
+        $this->cart_model->clear($user_id);
         redirect('trx/status/'. $insertId, );
 
         // $success = true;
@@ -63,6 +70,8 @@ class Trx extends CI_Controller {
         $data["trxItems"] = $trxItems;
         $transaction = $this->transaction_model->getById($transaction_id);
         $data["trx"] = $transaction;
+        $data["courier"] = $this->courier_model->getById($transaction->courier_id);
+        $data["payment"] = $this->payment_model->getById($transaction->payment_id);
 
         $products = [];
         foreach ($trxItems as $trxItem) {
