@@ -53,41 +53,15 @@
             <!-- Right Icon -->
             <div class="col-8 col-sm-8 col-md-8 col-lg-5 align-self-center icons-col text-right">
                 
-    <!-- Account -->
+    <!-- Cart -->
     <div class="account-parent iconset">
-        <div class="account-link" title="Account">
+    <div class="account-link" title="Account">
+        <a href="menu/pages/my_account/my-account.php">
             <i class="bi bi-cart" style="font-size: 1rem; color: white;"></i>
-        </div>
-        <div id="accountBox">
-            <div class="customer-links">
-                <ul class="m-0">
-                    <?php if ($this->session->userdata('id_user')): ?>
-                        <li>
-                            <a href="<?php echo site_url('pages/my_account'); ?>">
-                                <i class="icon anm anm-user-cil"></i>My Account
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?php echo site_url('auth/logout'); ?>">
-                                <i class="icon anm anm-sign-out-al"></i>Sign Out
-                            </a>
-                        </li>
-                    <?php else: ?>
-                        <li>
-                            <a href="<?php echo site_url('auth/login'); ?>">
-                                <i class="icon anm anm-sign-in-al"></i>Sign In
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?php echo site_url('auth/register'); ?>">
-                                <i class="icon anm anm-user-al"></i>Register
-                            </a>
-                        </li>
-                    <?php endif; ?>
-                </ul>
-            </div>
-        </div>
+        </a>
     </div>
+</div>
+
 
     <!-- Account (Duplicate Section for User Profile) -->
     <div class="account-parent iconset">
@@ -97,12 +71,13 @@
         <div id="accountBox">
             <div class="customer-links">
                 <ul class="m-0">
-                    <?php if ($this->session->userdata('id_user')): ?>
+                    <?php if ($this->session->userdata('user_id')): ?>
                         <li>
-                            <a href="<?php echo site_url('auth/my_account'); ?>">
-                                <i class="icon anm anm-user-cil"></i>My Account
-                            </a>
-                        </li>
+    <a href="<?php echo site_url('profile/account'); ?>">
+        <i class="icon anm anm-user-cil"></i>My Account
+    </a>
+</li>
+
                         <li>
                             <a href="<?php echo site_url('auth/logout'); ?>">
                                 <i class="icon anm anm-sign-out-al"></i>Sign Out

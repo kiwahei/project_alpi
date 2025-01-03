@@ -53,7 +53,7 @@
                 </li>
                 <li
                     class="sidebar-item  ">
-                    <a href="index.html" class='sidebar-link'>
+                    <a href="<?php echo site_url('admin/product'); ?>" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Product</span>
                     </a>
@@ -63,7 +63,7 @@
 
                 <li
                     class="sidebar-item  ">
-                    <a href="index.html" class='sidebar-link'>
+                    <a href="<?php echo site_url('admin/category'); ?>" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Category</span>
                     </a>
@@ -73,12 +73,17 @@
 
                 <li
                     class="sidebar-item  ">
-                    <a href="index.html" class='sidebar-link'>
+                    <a href="<?php echo site_url('admin/transaction'); ?>" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Order</span>
                     </a>
-                    
-
+                </li>
+                <li
+                    class="sidebar-item  ">
+                    <a href="<?php echo site_url('admin/auth/logout'); ?>" class='sidebar-link'>
+                        <i class="bi bi-grid-fill"></i>
+                        <span>Logout</span>
+                    </a>
                 </li>
             </ul>
         </div>
