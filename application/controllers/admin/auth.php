@@ -49,13 +49,13 @@ class Auth extends CI_Controller {
             }
         }
 
-        // Load the login view (located in 'views/admin/auth/index.php')
         $this->load->view('admin/auth/index');
     }
 
     // Logout function
     public function logout() {
-        $this->session->sess_destroy(); // Destroy session
+        $this->session->sess_destroy(); // Destroy session        
+        $this->input->set_cookie('ci_session', '', time() - 3600, '/', '', FALSE, TRUE);
         redirect('admin/auth/login');   // Redirect to the login page in the 'admin' folder
     }
 }
