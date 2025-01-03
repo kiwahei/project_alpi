@@ -46,7 +46,7 @@ class Auth extends CI_Controller {
             $email = $this->input->post('email');
             $password = $this->input->post('password');
 
-            $user = $this->User_model->authenticate($email);
+            $user = $this->User_model->authenticate($email, $password);
 
             if ($user && password_verify($password, $user['password'])) {
                 // Set session
