@@ -18,7 +18,8 @@
                         List
                     </h5>
                     <div class="col-auto">
-                        <a href="<?= base_url()?>admin/transaction/completed"  class="btn btn-primary" >Completed Transactions</a>
+                        <a href="<?= base_url()?>admin/transaction/all"  class="btn btn-primary" >All Transactions</a>
+                        <a href="<?= base_url()?>admin/transaction/completed"  class="btn btn-success" >Completed Transactions</a>
                         <a href="<?= base_url()?>admin/transaction/canceled"  class="btn btn-danger" >Canceled Transactions</a>
                     </div>
                 </div>
