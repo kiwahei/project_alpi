@@ -47,7 +47,7 @@
             <div class="cart-order-detail cart-col">
                 <div class="row g-0 border-bottom pb-2">
                     <span class="col-6 col-sm-6 cart-subtotal-title"><strong>Subtotal</strong></span>
-                    <span class="col-6 col-sm-6 cart-subtotal-title cart-subtotal text-end"><span class="money" id="subtotal">$326.00</span></span>
+                    <span class="col-6 col-sm-6 cart-subtotal-title cart-subtotal text-end"><span class="money" id="subtotal">Rp. <?= $trx->total_price ?></span></span>
                 </div>
                 <!-- <div class="row g-0 border-bottom py-2">
                     <span class="col-6 col-sm-6 cart-subtotal-title"><strong>Coupon Discount</strong></span>
@@ -63,7 +63,7 @@
                 </div>
                 <div class="row g-0 pt-2">
                     <span class="col-6 col-sm-6 cart-subtotal-title fs-6"><strong>Total</strong></span>
-                    <span class="col-6 col-sm-6 cart-subtotal-title fs-5 cart-subtotal text-end text-primary"><b class="money">$311.00</b></span>
+                    <span class="col-6 col-sm-6 cart-subtotal-title fs-5 cart-subtotal text-end text-primary"><b class="money">Rp. <?= $trx->total_price ?></b></span>
                 </div>
             </div>                               
         </div>
