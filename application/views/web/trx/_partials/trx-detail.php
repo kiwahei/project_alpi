@@ -47,16 +47,16 @@
             <div class="cart-order-detail cart-col">
                 <div class="row g-0 border-bottom pb-2">
                     <span class="col-6 col-sm-6 cart-subtotal-title"><strong>Subtotal</strong></span>
-                    <span class="col-6 col-sm-6 cart-subtotal-title cart-subtotal text-end"><span class="money">$326.00</span></span>
+                    <span class="col-6 col-sm-6 cart-subtotal-title cart-subtotal text-end"><span class="money" id="subtotal">$326.00</span></span>
                 </div>
-                <div class="row g-0 border-bottom py-2">
+                <!-- <div class="row g-0 border-bottom py-2">
                     <span class="col-6 col-sm-6 cart-subtotal-title"><strong>Coupon Discount</strong></span>
                     <span class="col-6 col-sm-6 cart-subtotal-title cart-subtotal text-end"><span class="money">-$25.00</span></span>
-                </div>
-                <div class="row g-0 border-bottom py-2">
+                </div> -->
+                <!-- <div class="row g-0 border-bottom py-2">
                     <span class="col-6 col-sm-6 cart-subtotal-title"><strong>Tax</strong></span>
                     <span class="col-6 col-sm-6 cart-subtotal-title cart-subtotal text-end"><span class="money">$10.00</span></span>
-                </div>
+                </div> -->
                 <div class="row g-0 border-bottom py-2">
                     <span class="col-6 col-sm-6 cart-subtotal-title"><strong>Shipping</strong></span>
                     <span class="col-6 col-sm-6 cart-subtotal-title cart-subtotal text-end"><span class="money">Free shipping</span></span>
@@ -113,33 +113,24 @@
         <div class="block mt-4">
             <div class="block-content">  
                 <div class="row g-0">
-                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                    <div class="col-12">
                         <div class="shipping-details mb-4 mb-sm-0">
                             <h3 class="title mb-3">Order details</h3>
-                            <p>Order ID: GHERT05764</p>
-                            <p>Order Date: October 14, 2023</p>
-                            <p>Order Total: $311.00</p>
+                            <p>Order ID: <?= $trx->id ?></p>
+                            <p>Order Date: <?= $trx->created_at ?></p>
                         </div>
                     </div>
-                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                        <div class="billing-details">
-                            <h3 class="title mb-3">Expected date of delivery</h3>
-                            <p>Your order is on the way</p>
-                            <p class="h5 my-2">October 18, 2023</p>
-                            <p><a href="#" class="btn-link">Track order</a></p>
-                        </div>
-                    </div>
+                   
                 </div>
             </div>
         </div>
         <!--End Order Details-->
 
         <!--Order Delivery-->
-        <div class="d-flex-wrap w-100 mt-4 text-center">
+        <!-- <div class="d-flex-wrap w-100 mt-4 text-center">
             <a href="index.html" class="d-inline-flex align-items-center btn btn-outline-primary me-2 mb-2 me-sm-3"><i class="me-2 icon an an-angle-left-r"></i>Continue Shopping</a>
             <button type="button" class="d-inline-flex align-items-center btn me-2 mb-2 me-sm-3"><i class="me-2 icon an an-print"></i>Print Order</button>
-            <button type="button" class="d-inline-flex align-items-center btn me-2 mb-2 me-sm-3"><i class="me-2 icon an an-sync-ar"></i>Re-Order</button>
-        </div>
+        </div> -->
         <!--Order delivery-->
     </div>
 </div>

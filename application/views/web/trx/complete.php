@@ -24,14 +24,14 @@
         <!--Order success-->
         <div class="success-text checkout-card mb-2 d-flex align-items-center">
             <div class="me-4">
-                <i class="bi bi-clock-fill" style="font-size: 8rem; color: green;"></i>
+                <i class="bi bi-bag-check" style="font-size: 8rem; color: #FFE893;"></i>
             </div>
             <div>
                 <h2>Thank you for your order!</h2>
                 <p class="mb-1">Payment is successfully processsed and your order is on the way</p>
                 <p class="mb-1">You will receive an order confirmation email with details of your order and a link to track its progress.</p>                                       
                 <p class="text-order badge bg-success mt-3">Transaction ID: <?= $trx->id ?></p>
-                <p class="text-order badge bg-success mt-3">Status: Waiting Confirmation</p>
+                <p class="text-order badge bg-success mt-3">Status ID: Complete</p>
             </div>
            
           

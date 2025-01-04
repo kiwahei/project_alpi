@@ -86,6 +86,10 @@ class Trx extends CI_Controller {
             $this->load->view('web/trx/waiting-payment', $data);
         }elseif($transaction->status == "WAITING_CONFIRMATION"){
             $this->load->view('web/trx/waiting-confirmation', $data);
+        }elseif($transaction->status == "ON_PROCESS") {
+            $this->load->view('web/trx/on-process', $data);
+        }elseif($transaction->status == "COMPLETE") {
+            $this->load->view('web/trx/complete', $data);
         }
 
        
