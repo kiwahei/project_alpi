@@ -47,7 +47,7 @@
             <div class="cart-order-detail cart-col">
                 <div class="row g-0 border-bottom pb-2">
                     <span class="col-6 col-sm-6 cart-subtotal-title"><strong>Subtotal</strong></span>
-                    <span class="col-6 col-sm-6 cart-subtotal-title cart-subtotal text-end"><span class="money" id="subtotal">Rp. <?= $trx->total_price ?></span></span>
+                    <span class="col-6 col-sm-6 cart-subtotal-title cart-subtotal text-end"><span class="money" id="subtotal">Rp. <?= $trx->total_price ?>      </span></span>
                 </div>
                 <!-- <div class="row g-0 border-bottom py-2">
                     <span class="col-6 col-sm-6 cart-subtotal-title"><strong>Coupon Discount</strong></span>

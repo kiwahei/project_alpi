@@ -22,16 +22,19 @@ class Trx extends CI_Controller {
 
         $transaction_items = [];
 
+        $total = 0;
+
         foreach ($carts as $cart) {
             $product = $this->product_model->getById($cart["product_id"]);
-            
+            $subTotal =(int)$product->price * (int)$cart["quantity"];
             $transaction_items[] = [
                 "product_id"=> $cart["product_id"],
                 "product_price"=> $product->price,
                 "quantity"=> $cart["quantity"],
-                "subtotal" => (int)$product->price * (int)$cart["quantity"],
+                "subtotal" => $subTotal,
             ];
-            
+
+            $total += $subTotal;
         }
 
         
@@ -43,6 +46,7 @@ class Trx extends CI_Controller {
             "courier_id"=> $courier_id,
             "payment_id"=> $payment_id,
             'created_at' => date('Y-m-d H:i:s'),
+            'total_price' => $total
         ];
       
         $insertId = $this->transaction_model->add($user_id, $transaction, $transaction_items);

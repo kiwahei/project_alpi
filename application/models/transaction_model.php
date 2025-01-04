@@ -15,6 +15,12 @@ class Transaction_Model extends CI_Model {
         return $query->result_array();
     }
 
+    public function getAllByStatus($status){
+
+        $query = $this->db->query("SELECT * from $this->table WHERE status = '$status'");
+        return $query->result_array();
+    }
+
     public function getById($id){
         $query = $this->db->get_where($this->table, array('id' => $id));
         if ($query->num_rows() > 0) {
@@ -25,8 +31,28 @@ class Transaction_Model extends CI_Model {
        
     }
 
+    
+    public function process($trxId){
+        $this->db->set('status', "ON_PROCESS");
+        $this->db->where('id', $trxId);
+        $this->db->update($this->table);
+    }
+
+    public function deliver($trxId){
+        $this->db->set('status', "ON_DELIVERY");
+        $this->db->where('id', $trxId);
+        $this->db->update($this->table);
+    }
+
+    public function confirm($trxId){
+        $this->db->set('status', "WAITING_CONFIRMATION");
+        $this->db->where('id', $trxId);
+        $this->db->update($this->table);
+    }
+
+
     public function complete($trxId){
-        $this->db->set('status', 0);
+        $this->db->set('status', "COMPLETE");
         $this->db->where('id', $trxId);
         $this->db->update($this->table);
     }

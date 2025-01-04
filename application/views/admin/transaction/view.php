@@ -26,7 +26,7 @@
                             <th>Product</th>
                             <th>Price</th>
                             <th>Quantity</th>
-                            <th>Subtotal</th>
+                            <th class="text-end">Subtotal</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,12 +35,25 @@
                             <td><?= $t["product_name"] ?></td>
                             <td><?= $t["product_price"] ?></td>
                             <td><?= $t["quantity"] ?></td>
-                            <td><?= $t["subtotal"] ?></td>
-                        </t>
+                            <td class="text-end"><?= $t["subtotal"] ?></td>
+                        </tr>
                         <?php endforeach; ?>
+                        <tr class="bg-primary">
+                            <td colspan="3" class="text-white">TOTAL</td>
+                            <td class="text-end text-white" ><?= $trx->total_price ?></td>
+                        </tr>
                     </tbody>
                 </table>
-                <a class="btn btn-primary" href="<?= base_url()?>admin/transaction/complete/<?= $trx->id ?>">Complete</a>
+                <?php  if($trx->status == "WAITING_PAYMENT"): ?>
+                    <a class="btn btn-primary" href="<?= base_url()?>admin/transaction/confirm/<?= $trx->id ?>">Confirm</a>
+                <?php  elseif($trx->status == "WAITING_CONFIRMATION"): ?>
+                    <a class="btn btn-primary" href="<?= base_url()?>admin/transaction/process/<?= $trx->id ?>">Process</a>
+                <?php  elseif($trx->status == "ON_PROCESS"): ?>
+                    <a class="btn btn-primary" href="<?= base_url()?>admin/transaction/deliver/<?= $trx->id ?>">Deliver</a>
+                <?php  elseif($trx->status == "ON_DELIVERY"): ?>
+                    <a class="btn btn-primary" href="<?= base_url()?>admin/transaction/complete/<?= $trx->id ?>">Complete</a>
+                <?php endif; ?>
+             
             </div>
         <div>
     </section>
