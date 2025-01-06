@@ -111,6 +111,8 @@ class Product extends CI_Controller
 
 
     function delete($id){
+        $product = $this->product_model->getById($id);
+        unlink(FCPATH.'/uploads/product/'.$product->image);
         $this->product_model->delete($id);
         $this->session->set_flashdata('message', 'Data berhasil didelete!');
         redirect('admin/product');
