@@ -48,13 +48,15 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            carts
                                 <?php foreach ($carts as $c): ?>
                                 <tr class="cart-row cart-flex position-relative">
                                     <td class="cart-delete text-center small-hide">
                                         <a href="<?= base_url() ?>cart/remove/<?= $c['id']?>" class="cart-remove remove-icon position-static" data-bs-toggle="tooltip" data-bs-placement="top" title="Remove to Cart"><i class="icon anm anm-times-r"></i></a>
                                     </td>
                                     <td class="cart-image cart-flex-item">
-                                        <a href="product-layout1.html"><img class="cart-image rounded-0 blur-up lazyload" data-src="assets/images/products/product1-120x170.jpg" src="assets/images/products/product1-120x170.jpg" alt="Sunset Sleep Scarf Top" width="120" height="170" /></a>
+                                        <a href="product-layout1.html">
+                                            <img class="cart-image rounded-0 blur-up lazyload" data-src="<?= base_url("/uploads/product/").$c["product_image"] ?>" src="<?= base_url("/uploads/product/").$c["product_image"] ?>" alt="Sunset Sleep Scarf Top" width="120" height="170" /></a>
                                     </td>
                                     <td class="cart-meta small-text-left cart-flex-item">
                                         <div class="list-view-item-title">
@@ -190,11 +192,11 @@
 
                             <p class="cart-shipping mt-3">Shipping &amp; taxes calculated at checkout</p>
                             <p class="cart-shipping fst-normal freeShipclaim"><i class="me-2 align-middle icon anm anm-truck-l"></i><b>FREE SHIPPING</b> ELIGIBLE</p>
-                            <div class="customCheckbox cart-tearm">
+                            <!-- <div class="customCheckbox cart-tearm">
                                 <input type="checkbox" value="allen-vela" id="cart-tearm">
                                 <label for="cart-tearm">I agree with the terms and conditions</label>
                             </div>
-                            
+                             -->
                             <button type="button" id="cartCheckout" class="btn btn-lg my-4 checkout w-100">Proceed To Checkout</button>
                             <div class="paymnet-img text-center"><img src="assets/images/icons/safepayment.png" alt="Payment" width="299" height="28" /></div>
                         </div>                               

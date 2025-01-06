@@ -16,6 +16,7 @@ class Cart_Model extends CI_Model {
             $product = $this->product_model->getById($item['product_id']);
             $item['product_name'] = $product ? $product->name : 'Unknown';
             $item['product_price'] = $product ? $product->price : '0';
+            $item['product_image'] = $product ? $product->image : 'empty';
         }
         return $cartArray; 
     
@@ -125,6 +126,7 @@ class Cart_Model extends CI_Model {
     public function updateQuantity($cartId, $quantity) {
         $this->db->where('id', $cartId);
         return $this->db->update('cart', ['quantity' => $quantity]);
+    
     }
 
 

@@ -28,6 +28,10 @@ class Cart extends CI_Controller {
     public function add_single($product_id)
     {
         $user_id = $this->session->userdata('user_id');
+        if(!isset($user_id)){
+            echo json_encode(array('status'=> 'error'));
+            return;
+        }
         $this->cart_model->add_to_cart_single($product_id, $user_id);
         echo json_encode(array('status'=> 'success'));
        
