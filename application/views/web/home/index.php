@@ -227,7 +227,7 @@
                                                     class="btn btn-secondary addtocart add-to-cart-modal"
                                                     >
                                                     <i class="icon anm anm-basket-l me-2"></i>
-                                                    <button class="text btn btn-link add-to-cart"  id="" data-product-id="<?= $p["id"] ?>" data-product-name="<?= $p["name"] ?>" data-product-price="<?= $p["price"] ?>" type="button">Add to Cart</button>
+                                                    <button class="text btn btn-link add-to-cart"  id="" data-product-id="<?= $p["id"] ?>" data-product-name="<?= $p["name"] ?>" data-product-price="<?= $p["price"] ?>"  data-product-image="<?= $p["image"] ?>" type="button">Add to Cart</button>
                                                   
                                                 </a>
                                             </form>
@@ -316,8 +316,7 @@ $(document).ready(function() {
         const product_id = $(this).data('product-id');
         const product_name = $(this).data('product-name');
         const product_price = $(this).data('product-price');
-
-       
+        const product_image = $(this).data('product-image');
 
         
         $.ajax({
@@ -327,11 +326,14 @@ $(document).ready(function() {
             dataType: 'json',
             success: function(response) {
                 alert('Item added to cart!');
-                showAddToCartPopUp(product_name,product_price, "")
-                // updateCartView(response);
+                if(response.status == "error"){
+                    window.location.href = base_url+"/auth/login"
+                }else{
+                    showAddToCartPopUp(product_name,product_price, product_image)
+                }
             },
             error: function (xhr, ajaxOptions, thrownError) {
-                // window.location.href = base_url."/auth/login"
+                window.location.href = base_url+"/auth/login";
                 
             }
         });
@@ -340,9 +342,10 @@ $(document).ready(function() {
     function showAddToCartPopUp(name, price, image){
         console.log(name)
         
-        $("#addtocart_modal").addClass("show")
+        $("#addtocart_modal").modal("show")
         $("#cart-price").text(price)
         $("#cart-title").text(name)
+        $("#cart-image").attr('src',base_url+'/uploads/product/'+image)
     }
 });
 </script>

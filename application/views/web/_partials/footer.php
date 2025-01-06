@@ -224,9 +224,8 @@
                     <div class="row d-flex-center text-center">
                         <div class="col-md-6">
                             <!-- Product Image -->
-                            <a class="product-image" href="product-layout1.html"><img class="blur-up lazyload"
-                                    data-src="assets/images/products/electronic-product1.jpg"
-                                    src="assets/images/products/electronic-product1.jpg" alt="Product"
+                            <a class="product-image"  href="product-layout1.html"><img id="cart-image" class="blur-up lazyload"
+                                    alt="Product"
                                     title="Product" width="625" height="625" /></a>
                             <!-- End Product Image -->
                         </div>
@@ -235,10 +234,9 @@
                             <div class="product-details">
                                 <div class="variant-cart mb-1">Electronic</div>
                                 <a class="product-title" id="cart-title" href="product-layout1.html">Digital SLR Camera</a>
-                                <p class="product-clr my-2 text-muted">Black / XL</p>
                             </div>
                             <div class="addcart-total rounded-5">
-                                <p class="d-flex-justify-center"  id="cart-price">Total: <span class="price">$198.00</span></p>
+                                <p class="d-flex-justify-center"  >Total: Rp. <span class="price" id="cart-price">0</span></p>
                             </div>
                             <!-- End Product Info -->
                             <!-- Product Action -->
