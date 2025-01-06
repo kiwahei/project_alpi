@@ -48,7 +48,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            carts
                                 <?php foreach ($carts as $c): ?>
                                 <tr class="cart-row cart-flex position-relative">
                                     <td class="cart-delete text-center small-hide">
@@ -96,7 +95,6 @@
                                     <td colspan="3" class="text-start"><a href="#" class="btn btn-outline-secondary btn-sm cart-continue"><i class="icon anm anm-angle-left-r me-2 d-none"></i> Continue shopping</a></td>
                                     <td colspan="3" class="text-end">
                                         <a href="<?= base_url() ?>cart/clear"  name="clear" class="btn btn-outline-secondary btn-sm small-hide"><i class="icon anm anm-times-r me-2 d-none"></i> Clear Shoping Cart</a>
-                                        <button type="submit" name="update" class="btn btn-secondary btn-sm cart-continue ms-2"><i class="icon anm anm-sync-ar me-2 d-none"></i> Update Cart</button>
                                     </td>
                                 </tr>
                             </tfoot>
@@ -198,7 +196,7 @@
                             </div>
                              -->
                             <button type="button" id="cartCheckout" class="btn btn-lg my-4 checkout w-100">Proceed To Checkout</button>
-                            <div class="paymnet-img text-center"><img src="assets/images/icons/safepayment.png" alt="Payment" width="299" height="28" /></div>
+                            <div class="paymnet-img text-center"><img src="<?= base_url("/assets/images/icons/safepayment.png") ?>" alt="Payment" width="299" height="28" /></div>
                         </div>                               
                     </div>
                 </div>
