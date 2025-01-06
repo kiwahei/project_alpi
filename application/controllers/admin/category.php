@@ -20,8 +20,6 @@ class Category extends CI_Controller
     }
 
     function edit($id){
-        
-
         $data['category'] = $this->category_model->getById($id);
         $this->load->view('admin/category/edit', $data);
     }
@@ -32,7 +30,7 @@ class Category extends CI_Controller
         $name = $this->input->post('name');
         $description= $this->input->post('description');
 
-        $config['upload_path'] = FCPATH.'/uploads/';  // Tentukan folder tujuan upload
+        $config['upload_path'] = FCPATH.'/uploads/category/';  // Tentukan folder tujuan upload
         $config['allowed_types'] = 'jpg|jpeg|png|gif'; // Jenis file yang diperbolehkan
         $config['max_size'] = 2048;  // Maksimal ukuran file (dalam kilobytes)
         // $config['max_width'] = 1024; // Lebar maksimum gambar
@@ -41,17 +39,9 @@ class Category extends CI_Controller
 
         // Memuat konfigurasi file upload
         $this->load->library('upload', $config);
+        $this->upload->do_upload('image');
 
-        // Melakukan validasi file upload
-        if (!$this->upload->do_upload('image')) {
-            // Jika gagal upload, tampilkan pesan error
-            $error = array('error' => $this->upload->display_errors());
-            $this->load->view('admin/category/add', $error);
-        } else {
-            // Jika sukses upload, ambil data file yang diupload
-            $data = array('upload_data' => $this->upload->data());
-            $this->load->view('upload_success', $data);
-        }
+    
     
 
         $data = [
@@ -74,6 +64,19 @@ class Category extends CI_Controller
             'name' => $name,
             'description' => $description,
         ];
+
+        if(isset($_FILES['image'])){
+            $category = $this->category_model->getById($id);
+            unlink(FCPATH.'/uploads/category/'.$category->image);
+            $config['upload_path'] = FCPATH.'/uploads/category/'; 
+            $config['allowed_types'] = 'jpg|jpeg|png|gif'; 
+            $config['max_size'] = 2048;
+        
+            $config['file_name'] = time().$_FILES['image']['name'];  
+            $this->load->library('upload', $config);
+            $this->upload->do_upload('image');
+            $data['image'] = $config['file_name'];
+        }
 
         
         $this->category_model->update($id, $data);
