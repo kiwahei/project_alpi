@@ -19,7 +19,7 @@
              
             </div>
             <div class="card-body">
-                <form method="POST" action="<?= base_url()?>admin/product/store">
+                <form method="POST" action="<?= base_url()?>admin/product/store" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="Fufufafa">
@@ -31,6 +31,20 @@
                     <div class="mb-3">
                         <label for="price" class="form-label">Price</label>
                         <input type="number" class="form-control" id="price" name="price" placeholder="insert product price">
+                    </div>
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Category</label>
+                        <select name="category" class="form-select">
+                            <option value="" selected disabled>- SELECT -</option>
+                            <?php foreach($categories as $category): ?>
+                                <option value="<?=$category['id'] ?>"><?= $category['name']?></option>
+                                
+                            <?php endforeach ?>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Photo</label>
+                        <input type="file" class="form-control" id="img" name="image" placeholder="insert product price">
                     </div>
                     <div>
                         <button class="btn btn-primary" type="submit">Save</button>
