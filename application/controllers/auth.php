@@ -31,7 +31,7 @@ class Auth extends CI_Controller {
     public function login() {
         // Redirect if already logged in
         if ($this->session->userdata('user_id')) {
-            redirect('home/index');
+            redirect('home');
         }
 
         // Set form validation rules
@@ -65,7 +65,7 @@ class Auth extends CI_Controller {
     public function register() {
         // Redirect if the user is logged in
         if ($this->session->userdata('user_id')) {
-            redirect('home/index');
+            redirect('home');
         }
 
         // Set form validation rules
