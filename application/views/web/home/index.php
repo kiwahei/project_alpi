@@ -116,13 +116,16 @@
           
             <div class="collection-slider-3items slick-arrow-dots gp15 arwOut5 hov-arrow circle-arrow">
                 <?php foreach ($categories as $c): ?>
+                   
 
                 <div class="category-item zoomscal-hov overlay-content">
                     <a href="shop-left-sidebar.html" class="category-link clr-none">
-                        <div class="zoom-scal"><img class="blur-up lazyload"
-                                data-src="assets/images/collection/demo4-ct2-img1.jpg"
-                                src="assets/images/collection/demo4-ct2-img1.jpg" alt="collection" title=""
-                                width="416" height="416" /></div>
+                        <div class="zoom-scal">
+                            <img class="blur-up lazyload"
+                                data-src="<?= base_url('/uploads/category/').$c['image'] ?>"
+                                src="<?= base_url('/uploads/category/').$c['image'] ?>" alt="collection" title=""
+                                width="416" height="416" />
+                        </div>
                         <div class="details whiteText text-center p-0">
                             <h4 class="category-title h2 text-uppercase mb-2 pb-1"><?= $c["name"] ?></h4>
                             <span class="category-btn btn-brd fw-500 text-uppercase">Shop Now</span>
@@ -179,49 +182,17 @@
                         <div class="item col-item">
                             <div class="product-box">
                                 <!-- Start Product Image -->
-                                <div class="product-image">
+                                <div class="">
                                     <!-- Start Product Image -->
                                     <a href="product-layout1.html" class="product-img">
                                         <!-- Image -->
-                                        <img class="primary blur-up lazyload"
-                                            data-src="assets/images/products/electronic-product8.jpg"
-                                            src="assets/images/products/electronic-product8.jpg" alt="Product"
+                                        <img class="primary lazyload"
+                                            data-src="<?= base_url("/uploads/product/").$p['image']?>"
+                                            src="<?= base_url("/uploads/product/").$p['image']?>" alt="Product"
                                             title="Product" width="625" height="625" />
-                                        <!-- End Image -->
-                                        <!-- Hover Image -->
-                                        <img class="hover blur-up lazyload"
-                                            data-src="assets/images/products/electronic-product8-1.jpg"
-                                            src="assets/images/products/electronic-product8-1.jpg" alt="Product"
-                                            title="Product" width="625" height="625" />
-                                        <!-- End Hover Image -->
+                                        
                                     </a>
-                                    <!-- End Product Image -->
-                                    <!--Product Button-->
-                                    <div class="button-set-top style1">
-                                        <!--Quick View Button-->
-                                        <a href="#quickview-modal"
-                                            class="btn-icon rounded-5 quickview quick-view-modal"
-                                            data-bs-toggle="modal" data-bs-target="#quickview_modal">
-                                            <span class="icon-wrap d-flex-justify-center h-100 w-100"
-                                                data-bs-toggle="tooltip" data-bs-placement="left"
-                                                title="Quick View"><i
-                                                    class="icon anm anm-search-plus-l"></i><span
-                                                    class="text">Quick View</span></span>
-                                        </a>
-                                        <!--End Quick View Button-->
-                                        <!--Wishlist Button-->
-                                        <a href="wishlist-style2.html" class="btn-icon rounded-5 wishlist"
-                                            data-bs-toggle="tooltip" data-bs-placement="left"
-                                            title="Add To Wishlist"><i class="icon anm anm-heart-l"></i><span
-                                                class="text">Add To Wishlist</span></a>
-                                        <!--End Wishlist Button-->
-                                        <!--Compare Button-->
-                                        <a href="compare-style2.html" class="btn-icon rounded-5 compare"
-                                            data-bs-toggle="tooltip" data-bs-placement="left"
-                                            title="Add to Compare"><i class="icon anm anm-random-r"></i><span
-                                                class="text">Add to Compare</span></a>
-                                        <!--End Compare Button-->
-                                    </div>
+                                    
                                     <!--End Product Button-->
                                 </div>
                                 <!-- End Product Image -->
@@ -250,13 +221,13 @@
                                     <!-- End Product Review -->
                                     <!-- Product Button -->
                                     <div class="button-action">
-                                        <div class="addtocart-btn">
-                                            <form class="addtocart" action="#" method="post">
-                                                <a href="#addtocart-modal"
+                                        <div>
+                                            <form  action="#" method="post">
+                                                <a
                                                     class="btn btn-secondary addtocart add-to-cart-modal"
-                                                    data-bs-toggle="modal" data-bs-target="#addtocart_modal">
+                                                    >
                                                     <i class="icon anm anm-basket-l me-2"></i>
-                                                    <button class="text btn btn-link add-to-cart" data-product-id="<?= $p["id"] ?>" type="button">Add to Cart</button>
+                                                    <button class="text btn btn-link add-to-cart"  id="" data-product-id="<?= $p["id"] ?>" data-product-name="<?= $p["name"] ?>" data-product-price="<?= $p["price"] ?>" type="button">Add to Cart</button>
                                                   
                                                 </a>
                                             </form>
@@ -276,613 +247,6 @@
     <!--End Products Slider-->
 
 
-    <!--Products Slider-->
-    <section class="section product-banner-slider pt-0">
-        <div class="container">
-            <div class="section-header style2 d-flex-center justify-content-sm-between">
-                <div class="section-header-left text-start">
-                    <h2>This Week Top Picks</h2>
-                    <p>Shop our new arrivals from established brands</p>
-                </div>
-                <div class="section-header-right text-start text-sm-end mt-3 mt-sm-0">
-                    <a href="shop-left-sidebar.html" class="btn btn-primary">View More <i
-                            class="icon anm anm-arw-right ms-2"></i></a>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12 col-sm-12 col-md-12 col-lg-9">
-                    <div
-                        class="grid-products product-slider-3items gp15 arwOut5 hov-arrow circle-arrow arrowlr-0">
-                        <div class="item col-item">
-                            <div class="product-box">
-                                <!-- Start Product Image -->
-                                <div class="product-image">
-                                    <!-- Start Product Image -->
-                                    <a href="product-layout1.html" class="product-img">
-                                        <!-- Image -->
-                                        <img class="primary blur-up lazyload"
-                                            data-src="assets/images/products/electronic-product4.jpg"
-                                            src="assets/images/products/electronic-product4.jpg" alt="Product"
-                                            title="Product" width="625" height="625" />
-                                        <!-- End Image -->
-                                        <!-- Hover Image -->
-                                        <img class="hover blur-up lazyload"
-                                            data-src="assets/images/products/electronic-product4-1.jpg"
-                                            src="assets/images/products/electronic-product4-1.jpg" alt="Product"
-                                            title="Product" width="625" height="625" />
-                                        <!-- End Hover Image -->
-                                    </a>
-                                    <!-- End Product Image -->
-                                    <!--Product Button-->
-                                    <div class="button-set-top style1">
-                                        <!--Quick View Button-->
-                                        <a href="#quickview-modal"
-                                            class="btn-icon rounded-5 quickview quick-view-modal"
-                                            data-bs-toggle="modal" data-bs-target="#quickview_modal">
-                                            <span class="icon-wrap d-flex-justify-center h-100 w-100"
-                                                data-bs-toggle="tooltip" data-bs-placement="left"
-                                                title="Quick View"><i
-                                                    class="icon anm anm-search-plus-l"></i><span
-                                                    class="text">Quick View</span></span>
-                                        </a>
-                                        <!--End Quick View Button-->
-                                        <!--Wishlist Button-->
-                                        <a href="wishlist-style2.html" class="btn-icon rounded-5 wishlist"
-                                            data-bs-toggle="tooltip" data-bs-placement="left"
-                                            title="Add To Wishlist"><i class="icon anm anm-heart-l"></i><span
-                                                class="text">Add To Wishlist</span></a>
-                                        <!--End Wishlist Button-->
-                                        <!--Compare Button-->
-                                        <a href="compare-style2.html" class="btn-icon rounded-5 compare"
-                                            data-bs-toggle="tooltip" data-bs-placement="left"
-                                            title="Add to Compare"><i class="icon anm anm-random-r"></i><span
-                                                class="text">Add to Compare</span></a>
-                                        <!--End Compare Button-->
-                                    </div>
-                                    <!--End Product Button-->
-                                    <!--Product Availability-->
-                                    <div class="product-availability rounded-5">
-                                        <div class="lh-1 d-flex justify-content-between">
-                                            <div class="text-sold">Sold:<strong
-                                                    class="text-primary ms-1">34</strong></div>
-                                            <div class="text-available">Available:<strong
-                                                    class="text-primary ms-1">16</strong></div>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar w-75" role="progressbar" aria-valuenow="75"
-                                                aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                    <!--End Product Availability-->
-                                </div>
-                                <!-- End Product Image -->
-                                <!-- Start Product Details -->
-                                <div class="product-details text-left">
-                                    <!--Product Vendor-->
-                                    <div class="product-vendor">LG</div>
-                                    <!--End Product Vendor-->
-                                    <!-- Product Name -->
-                                    <div class="product-name">
-                                        <a href="product-layout1.html">Bluetooth Smart Wacthes</a>
-                                    </div>
-                                    <!-- End Product Name -->
-                                    <!-- Product Price -->
-                                    <div class="product-price">
-                                        <span class="price old-price">$198.00</span><span
-                                            class="price">$99.00</span>
-                                    </div>
-                                    <!-- End Product Price -->
-                                    <!-- Product Review -->
-                                    <div class="product-review">
-                                        <i class="icon anm anm-star-o"></i><i class="icon anm anm-star-o"></i><i
-                                            class="icon anm anm-star-o"></i><i
-                                            class="icon anm anm-star-o"></i><i class="icon anm anm-star-o"></i>
-                                        <span class="caption hidden ms-1">0 Reviews</span>
-                                    </div>
-                                    <!-- End Product Review -->
-                                    <!-- Product Button -->
-                                    <div class="button-action">
-                                        <div class="addtocart-btn">
-                                            <form class="addtocart" action="#" method="post">
-                                                <a href="#addtocart-modal"
-                                                    class="btn btn-secondary addtocart add-to-cart-modal"
-                                                    data-bs-toggle="modal" data-bs-target="#addtocart_modal">
-                                                    <i class="icon anm anm-basket-l me-2"></i><span
-                                                        class="text">Add to Cart</span>
-                                                </a>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <!-- End Product Button -->
-                                </div>
-                                <!-- End product details -->
-                            </div>
-                        </div>
-                        <div class="item col-item">
-                            <div class="product-box">
-                                <!-- Start Product Image -->
-                                <div class="product-image">
-                                    <!-- Start Product Image -->
-                                    <a href="product-layout1.html" class="product-img">
-                                        <!-- Image -->
-                                        <img class="primary blur-up lazyload"
-                                            data-src="assets/images/products/electronic-product5.jpg"
-                                            src="assets/images/products/electronic-product5.jpg" alt="Product"
-                                            title="Product" width="625" height="625" />
-                                        <!-- End Image -->
-                                        <!-- Hover Image -->
-                                        <img class="hover blur-up lazyload"
-                                            data-src="assets/images/products/electronic-product5-1.jpg"
-                                            src="assets/images/products/electronic-product5-1.jpg" alt="Product"
-                                            title="Product" width="625" height="625" />
-                                        <!-- End Hover Image -->
-                                    </a>
-                                    <!-- End Product Image -->
-                                    <!-- Product label -->
-                                    <div class="product-labels radius"><span class="lbl pr-label2">Hot</span>
-                                    </div>
-                                    <!-- End Product label -->
-                                    <!--Product Button-->
-                                    <div class="button-set-top style1">
-                                        <!--Quick View Button-->
-                                        <a href="#quickview-modal"
-                                            class="btn-icon rounded-5 quickview quick-view-modal"
-                                            data-bs-toggle="modal" data-bs-target="#quickview_modal">
-                                            <span class="icon-wrap d-flex-justify-center h-100 w-100"
-                                                data-bs-toggle="tooltip" data-bs-placement="left"
-                                                title="Quick View"><i
-                                                    class="icon anm anm-search-plus-l"></i><span
-                                                    class="text">Quick View</span></span>
-                                        </a>
-                                        <!--End Quick View Button-->
-                                        <!--Wishlist Button-->
-                                        <a href="wishlist-style2.html" class="btn-icon rounded-5 wishlist"
-                                            data-bs-toggle="tooltip" data-bs-placement="left"
-                                            title="Add To Wishlist"><i class="icon anm anm-heart-l"></i><span
-                                                class="text">Add To Wishlist</span></a>
-                                        <!--End Wishlist Button-->
-                                        <!--Compare Button-->
-                                        <a href="compare-style2.html" class="btn-icon rounded-5 compare"
-                                            data-bs-toggle="tooltip" data-bs-placement="left"
-                                            title="Add to Compare"><i class="icon anm anm-random-r"></i><span
-                                                class="text">Add to Compare</span></a>
-                                        <!--End Compare Button-->
-                                    </div>
-                                    <!--End Product Button-->
-                                </div>
-                                <!-- End Product Image -->
-                                <!-- Start Product Details -->
-                                <div class="product-details text-left">
-                                    <!--Product Vendor-->
-                                    <div class="product-vendor">HP</div>
-                                    <!--End Product Vendor-->
-                                    <!-- Product Name -->
-                                    <div class="product-name">
-                                        <a href="product-layout1.html">Light with Tripod Stand</a>
-                                    </div>
-                                    <!-- End Product Name -->
-                                    <!-- Product Price -->
-                                    <div class="product-price">
-                                        <span class="price">$39.00</span>
-                                    </div>
-                                    <!-- End Product Price -->
-                                    <!-- Product Review -->
-                                    <div class="product-review">
-                                        <i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i
-                                            class="icon anm anm-star-o"></i><i
-                                            class="icon anm anm-star-o"></i><i class="icon anm anm-star-o"></i>
-                                        <span class="caption hidden ms-1">3 Reviews</span>
-                                    </div>
-                                    <!-- End Product Review -->
-                                    <!-- Product Button -->
-                                    <div class="button-action">
-                                        <div class="addtocart-btn">
-                                            <form class="addtocart" action="#" method="post">
-                                                <a href="#addtocart-modal"
-                                                    class="btn btn-secondary addtocart add-to-cart-modal"
-                                                    data-bs-toggle="modal" data-bs-target="#addtocart_modal">
-                                                    <i class="icon anm anm-basket-l me-2"></i><span
-                                                        class="text">Add to Cart</span>
-                                                </a>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <!-- End Product Button -->
-                                </div>
-                                <!-- End product details -->
-                            </div>
-                        </div>
-                        <div class="item col-item">
-                            <div class="product-box">
-                                <!-- Start Product Image -->
-                                <div class="product-image">
-                                    <!-- Start Product Image -->
-                                    <a href="product-layout1.html" class="product-img">
-                                        <!-- Image -->
-                                        <img class="primary blur-up lazyload"
-                                            data-src="assets/images/products/electronic-product6.jpg"
-                                            src="assets/images/products/electronic-product6.jpg" alt="Product"
-                                            title="Product" width="625" height="625" />
-                                        <!-- End Image -->
-                                        <!-- Hover Image -->
-                                        <img class="hover blur-up lazyload"
-                                            data-src="assets/images/products/electronic-product6-1.jpg"
-                                            src="assets/images/products/electronic-product6-1.jpg" alt="Product"
-                                            title="Product" width="625" height="625" />
-                                        <!-- End Hover Image -->
-                                    </a>
-                                    <!-- End Product Image -->
-                                    <!--Product Button-->
-                                    <div class="button-set-top style1">
-                                        <!--Quick View Button-->
-                                        <a href="#quickview-modal"
-                                            class="btn-icon rounded-5 quickview quick-view-modal"
-                                            data-bs-toggle="modal" data-bs-target="#quickview_modal">
-                                            <span class="icon-wrap d-flex-justify-center h-100 w-100"
-                                                data-bs-toggle="tooltip" data-bs-placement="left"
-                                                title="Quick View"><i
-                                                    class="icon anm anm-search-plus-l"></i><span
-                                                    class="text">Quick View</span></span>
-                                        </a>
-                                        <!--End Quick View Button-->
-                                        <!--Wishlist Button-->
-                                        <a href="wishlist-style2.html" class="btn-icon rounded-5 wishlist"
-                                            data-bs-toggle="tooltip" data-bs-placement="left"
-                                            title="Add To Wishlist"><i class="icon anm anm-heart-l"></i><span
-                                                class="text">Add To Wishlist</span></a>
-                                        <!--End Wishlist Button-->
-                                        <!--Compare Button-->
-                                        <a href="compare-style2.html" class="btn-icon rounded-5 compare"
-                                            data-bs-toggle="tooltip" data-bs-placement="left"
-                                            title="Add to Compare"><i class="icon anm anm-random-r"></i><span
-                                                class="text">Add to Compare</span></a>
-                                        <!--End Compare Button-->
-                                    </div>
-                                    <!--End Product Button-->
-                                </div>
-                                <!-- End Product Image -->
-                                <!-- Start Product Details -->
-                                <div class="product-details text-left">
-                                    <!--Product Vendor-->
-                                    <div class="product-vendor">Philips</div>
-                                    <!--End Product Vendor-->
-                                    <!-- Product Name -->
-                                    <div class="product-name">
-                                        <a href="product-layout1.html">Bullet Cameras with Audio</a>
-                                    </div>
-                                    <!-- End Product Name -->
-                                    <!-- Product Price -->
-                                    <div class="product-price">
-                                        <span class="price">$299.00</span>
-                                    </div>
-                                    <!-- End Product Price -->
-                                    <!-- Product Review -->
-                                    <div class="product-review">
-                                        <i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i
-                                            class="icon anm anm-star"></i><i class="icon anm anm-star-o"></i><i
-                                            class="icon anm anm-star-o"></i>
-                                        <span class="caption hidden ms-1">15 Reviews</span>
-                                    </div>
-                                    <!-- End Product Review -->
-                                    <!-- Product Button -->
-                                    <div class="button-action">
-                                        <div class="addtocart-btn">
-                                            <form class="addtocart" action="#" method="post">
-                                                <a href="#addtocart-modal"
-                                                    class="btn btn-secondary addtocart add-to-cart-modal"
-                                                    data-bs-toggle="modal" data-bs-target="#addtocart_modal">
-                                                    <i class="icon anm anm-basket-l me-2"></i><span
-                                                        class="text">Add to Cart</span>
-                                                </a>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <!-- End Product Button -->
-                                </div>
-                                <!-- End product details -->
-                            </div>
-                        </div>
-                        <div class="item col-item">
-                            <div class="product-box">
-                                <!-- Start Product Image -->
-                                <div class="product-image">
-                                    <!-- Start Product Image -->
-                                    <a href="product-layout1.html" class="product-img">
-                                        <!-- Image -->
-                                        <img class="primary blur-up lazyload"
-                                            data-src="assets/images/products/electronic-product7.jpg"
-                                            src="assets/images/products/electronic-product7.jpg" alt="Product"
-                                            title="Product" width="625" height="625" />
-                                        <!-- End Image -->
-                                        <!-- Hover Image -->
-                                        <img class="hover blur-up lazyload"
-                                            data-src="assets/images/products/electronic-product7-1.jpg"
-                                            src="assets/images/products/electronic-product7-1.jpg" alt="Product"
-                                            title="Product" width="625" height="625" />
-                                        <!-- End Hover Image -->
-                                    </a>
-                                    <!-- End Product Image -->
-                                    <!--Product Button-->
-                                    <div class="button-set-top style1">
-                                        <!--Quick View Button-->
-                                        <a href="#quickview-modal"
-                                            class="btn-icon rounded-5 quickview quick-view-modal"
-                                            data-bs-toggle="modal" data-bs-target="#quickview_modal">
-                                            <span class="icon-wrap d-flex-justify-center h-100 w-100"
-                                                data-bs-toggle="tooltip" data-bs-placement="left"
-                                                title="Quick View"><i
-                                                    class="icon anm anm-search-plus-l"></i><span
-                                                    class="text">Quick View</span></span>
-                                        </a>
-                                        <!--End Quick View Button-->
-                                        <!--Wishlist Button-->
-                                        <a href="wishlist-style2.html" class="btn-icon rounded-5 wishlist"
-                                            data-bs-toggle="tooltip" data-bs-placement="left"
-                                            title="Add To Wishlist"><i class="icon anm anm-heart-l"></i><span
-                                                class="text">Add To Wishlist</span></a>
-                                        <!--End Wishlist Button-->
-                                        <!--Compare Button-->
-                                        <a href="compare-style2.html" class="btn-icon rounded-5 compare"
-                                            data-bs-toggle="tooltip" data-bs-placement="left"
-                                            title="Add to Compare"><i class="icon anm anm-random-r"></i><span
-                                                class="text">Add to Compare</span></a>
-                                        <!--End Compare Button-->
-                                    </div>
-                                    <!--End Product Button-->
-                                </div>
-                                <!-- End Product Image -->
-                                <!-- Start Product Details -->
-                                <div class="product-details text-left">
-                                    <!--Product Vendor-->
-                                    <div class="product-vendor">Camera</div>
-                                    <!--End Product Vendor-->
-                                    <!-- Product Name -->
-                                    <div class="product-name">
-                                        <a href="product-layout1.html">FZ43 16 MP Digital Camera</a>
-                                    </div>
-                                    <!-- End Product Name -->
-                                    <!-- Product Price -->
-                                    <div class="product-price">
-                                        <span class="price">$139.00</span>
-                                    </div>
-                                    <!-- End Product Price -->
-                                    <!-- Product Review -->
-                                    <div class="product-review">
-                                        <i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i
-                                            class="icon anm anm-star-o"></i><i
-                                            class="icon anm anm-star-o"></i><i class="icon anm anm-star-o"></i>
-                                        <span class="caption hidden ms-1">11 Reviews</span>
-                                    </div>
-                                    <!-- End Product Review -->
-                                    <!-- Product Button -->
-                                    <div class="button-action">
-                                        <div class="addtocart-btn">
-                                            <form class="addtocart" action="#" method="post">
-                                                <a href="#addtocart-modal"
-                                                    class="btn btn-secondary addtocart add-to-cart-modal"
-                                                    data-bs-toggle="modal" data-bs-target="#addtocart_modal">
-                                                    <i class="icon anm anm-basket-l me-2"></i><span
-                                                        class="text">Add to Cart</span>
-                                                </a>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <!-- End Product Button -->
-                                </div>
-                                <!-- End product details -->
-                            </div>
-                        </div>
-                        <div class="item col-item">
-                            <div class="product-box">
-                                <!-- Start Product Image -->
-                                <div class="product-image">
-                                    <!-- Start Product Image -->
-                                    <a href="product-layout1.html" class="product-img">
-                                        <!-- Image -->
-                                        <img class="primary blur-up lazyload"
-                                            data-src="assets/images/products/electronic-product8.jpg"
-                                            src="assets/images/products/electronic-product8.jpg" alt="Product"
-                                            title="Product" width="625" height="625" />
-                                        <!-- End Image -->
-                                        <!-- Hover Image -->
-                                        <img class="hover blur-up lazyload"
-                                            data-src="assets/images/products/electronic-product8-1.jpg"
-                                            src="assets/images/products/electronic-product8-1.jpg" alt="Product"
-                                            title="Product" width="625" height="625" />
-                                        <!-- End Hover Image -->
-                                    </a>
-                                    <!-- End Product Image -->
-                                    <!--Product Button-->
-                                    <div class="button-set-top style1">
-                                        <!--Quick View Button-->
-                                        <a href="#quickview-modal"
-                                            class="btn-icon rounded-5 quickview quick-view-modal"
-                                            data-bs-toggle="modal" data-bs-target="#quickview_modal">
-                                            <span class="icon-wrap d-flex-justify-center h-100 w-100"
-                                                data-bs-toggle="tooltip" data-bs-placement="left"
-                                                title="Quick View"><i
-                                                    class="icon anm anm-search-plus-l"></i><span
-                                                    class="text">Quick View</span></span>
-                                        </a>
-                                        <!--End Quick View Button-->
-                                        <!--Wishlist Button-->
-                                        <a href="wishlist-style2.html" class="btn-icon rounded-5 wishlist"
-                                            data-bs-toggle="tooltip" data-bs-placement="left"
-                                            title="Add To Wishlist"><i class="icon anm anm-heart-l"></i><span
-                                                class="text">Add To Wishlist</span></a>
-                                        <!--End Wishlist Button-->
-                                        <!--Compare Button-->
-                                        <a href="compare-style2.html" class="btn-icon rounded-5 compare"
-                                            data-bs-toggle="tooltip" data-bs-placement="left"
-                                            title="Add to Compare"><i class="icon anm anm-random-r"></i><span
-                                                class="text">Add to Compare</span></a>
-                                        <!--End Compare Button-->
-                                    </div>
-                                    <!--End Product Button-->
-                                </div>
-                                <!-- End Product Image -->
-                                <!-- Start Product Details -->
-                                <div class="product-details text-left">
-                                    <!--Product Vendor-->
-                                    <div class="product-vendor">Instax</div>
-                                    <!--End Product Vendor-->
-                                    <!-- Product Name -->
-                                    <div class="product-name">
-                                        <a href="product-layout1.html">Fujifilm Instax Camera</a>
-                                    </div>
-                                    <!-- End Product Name -->
-                                    <!-- Product Price -->
-                                    <div class="product-price">
-                                        <span class="price">$134.00</span>
-                                    </div>
-                                    <!-- End Product Price -->
-                                    <!-- Product Review -->
-                                    <div class="product-review">
-                                        <i class="icon anm anm-star-o"></i><i class="icon anm anm-star-o"></i><i
-                                            class="icon anm anm-star-o"></i><i
-                                            class="icon anm anm-star-o"></i><i class="icon anm anm-star-o"></i>
-                                        <span class="caption hidden ms-1">0 Reviews</span>
-                                    </div>
-                                    <!-- End Product Review -->
-                                    <!-- Product Button -->
-                                    <div class="button-action">
-                                        <div class="addtocart-btn">
-                                            <form class="addtocart" action="#" method="post">
-                                                <a href="#addtocart-modal"
-                                                    class="btn btn-secondary addtocart add-to-cart-modal"
-                                                    data-bs-toggle="modal" data-bs-target="#addtocart_modal">
-                                                    <i class="icon anm anm-basket-l me-2"></i>
-
-                                                    <span class="text add-to-cart">Add to Cart</span>
-                                                </a>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <!-- End Product Button -->
-                                </div>
-                                <!-- End product details -->
-                            </div>
-                        </div>
-                
-                        <div class="item col-item">
-                            <div class="product-box">
-                                <!-- Start Product Image -->
-                                <div class="product-image">
-                                    <!-- Start Product Image -->
-                                    <a href="product-layout1.html" class="product-img">
-                                        <!-- Image -->
-                                        <img class="primary blur-up lazyload"
-                                            data-src="assets/images/products/electronic-product3.jpg"
-                                            src="assets/images/products/electronic-product3.jpg" alt="Product"
-                                            title="Product" width="625" height="625" />
-                                        <!-- End Image -->
-                                        <!-- Hover Image -->
-                                        <img class="hover blur-up lazyload"
-                                            data-src="assets/images/products/electronic-product3-1.jpg"
-                                            src="assets/images/products/electronic-product3-1.jpg" alt="Product"
-                                            title="Product" width="625" height="625" />
-                                        <!-- End Hover Image -->
-                                    </a>
-                                    <!-- End Product Image -->
-                                    <!-- Product label -->
-                                    <div class="product-labels radius"><span class="lbl pr-label3">New</span>
-                                    </div>
-                                    <!-- End Product label -->
-                                    <!--Product Button-->
-                                    <div class="button-set-top style1">
-                                        <!--Quick View Button-->
-                                        <a href="#quickview-modal"
-                                            class="btn-icon rounded-5 quickview quick-view-modal"
-                                            data-bs-toggle="modal" data-bs-target="#quickview_modal">
-                                            <span class="icon-wrap d-flex-justify-center h-100 w-100"
-                                                data-bs-toggle="tooltip" data-bs-placement="left"
-                                                title="Quick View"><i
-                                                    class="icon anm anm-search-plus-l"></i><span
-                                                    class="text">Quick View</span></span>
-                                        </a>
-                                        <!--End Quick View Button-->
-                                        <!--Wishlist Button-->
-                                        <a href="wishlist-style2.html" class="btn-icon rounded-5 wishlist"
-                                            data-bs-toggle="tooltip" data-bs-placement="left"
-                                            title="Add To Wishlist"><i class="icon anm anm-heart-l"></i><span
-                                                class="text">Add To Wishlist</span></a>
-                                        <!--End Wishlist Button-->
-                                        <!--Compare Button-->
-                                        <a href="compare-style2.html" class="btn-icon rounded-5 compare"
-                                            data-bs-toggle="tooltip" data-bs-placement="left"
-                                            title="Add to Compare"><i class="icon anm anm-random-r"></i><span
-                                                class="text">Add to Compare</span></a>
-                                        <!--End Compare Button-->
-                                    </div>
-                                    <!--End Product Button-->
-                                </div>
-                                <!-- End Product Image -->
-                                <!-- Start Product Details -->
-                                <div class="product-details text-left">
-                                    <!--Product Vendor-->
-                                    <div class="product-vendor">Wirlpool</div>
-                                    <!--End Product Vendor-->
-                                    <!-- Product Name -->
-                                    <div class="product-name">
-                                        <a href="product-layout1.html">Canon EOS 1500D 24.1 Digital</a>
-                                    </div>
-                                    <!-- End Product Name -->
-                                    <!-- Product Price -->
-                                    <div class="product-price">
-                                        <span class="price">$99.00</span>
-                                    </div>
-                                    <!-- End Product Price -->
-                                    <!-- Product Review -->
-                                    <div class="product-review">
-                                        <i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i
-                                            class="icon anm anm-star-o"></i><i
-                                            class="icon anm anm-star-o"></i><i class="icon anm anm-star-o"></i>
-                                        <span class="caption hidden ms-1">10 Reviews</span>
-                                    </div>
-                                    <!-- End Product Review -->
-                                    <!-- Product Button -->
-                                    <div class="button-action">
-                                        <div class="addtocart-btn">
-                                            <form class="addtocart" action="#" method="post">
-                                                <a href="#addtocart-modal"
-                                                    class="btn btn-secondary addtocart add-to-cart-modal"
-                                                    data-bs-toggle="modal" data-bs-target="#addtocart_modal">
-                                                    <i class="icon anm anm-basket-l me-2"></i><span
-                                                        class="text">Add to Cart</span>
-                                                </a>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <!-- End Product Button -->
-                                </div>
-                                <!-- End product details -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-12 col-md-12 col-lg-3 mt-4 mt-lg-0">
-                    <div class="ctg-bnr-wrap two position-relative h-100">
-                        <div class="ctg-image ratio ratio-1x1 h-100">
-                            <img class="blur-up lazyload"
-                                data-src="assets/images/collection/demo3-side-bnr2.jpg"
-                                src="assets/images/collection/demo3-side-bnr2.jpg" alt="collection" width="309"
-                                height="483" />
-                        </div>
-                        <div class="ctg-content text-white d-flex-justify-center flex-nowrap flex-column h-100">
-                            <h2 class="ctg-title text-white m-0"><span class="d-block">Summer</span> Sale</h2>
-                            <p class="saleText text-uppercase mb-0">30% Off</p>
-                            <p class="ctg-des mt-1 mb-4">On all new arrival product</p>
-                            <a class="btn btn-secondary explore-btn" href="shop-left-sidebar.html">Shop Now <i
-                                    class="icon anm anm-arw-right ms-2"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--End Products Slider-->
 
     <!--Collection banner-->
     <section class="section collection-banners two-one-bnr py-0">
@@ -950,6 +314,11 @@ $(document).ready(function() {
     $('.add-to-cart').click(function(e) {
         e.preventDefault();
         const product_id = $(this).data('product-id');
+        const product_name = $(this).data('product-name');
+        const product_price = $(this).data('product-price');
+
+       
+
         
         $.ajax({
             url: base_url + 'cart/add_single/'+product_id,
@@ -958,10 +327,23 @@ $(document).ready(function() {
             dataType: 'json',
             success: function(response) {
                 alert('Item added to cart!');
+                showAddToCartPopUp(product_name,product_price, "")
                 // updateCartView(response);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                // window.location.href = base_url."/auth/login"
+                
             }
         });
     });
+
+    function showAddToCartPopUp(name, price, image){
+        console.log(name)
+        
+        $("#addtocart_modal").addClass("show")
+        $("#cart-price").text(price)
+        $("#cart-title").text(name)
+    }
 });
 </script>
 

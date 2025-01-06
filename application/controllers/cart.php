@@ -29,6 +29,7 @@ class Cart extends CI_Controller {
     {
         $user_id = $this->session->userdata('user_id');
         $this->cart_model->add_to_cart_single($product_id, $user_id);
+        echo json_encode(array('status'=> 'success'));
        
     }
 

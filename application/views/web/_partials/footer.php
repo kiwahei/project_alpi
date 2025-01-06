@@ -177,8 +177,8 @@
                                 title="Product" width="625" height="625" /></a>
                         <div class="col-8 product-details">
                             <div class="product-variant ps-3">
-                                <div class="variant-cart mb-1">Electronic</div>
-                                <a class="product-title" href="product-layout1.html">Digital SLR Camera</a>
+                                <!-- <div class="variant-cart mb-1">Electronic</div> -->
+                                <a class="product-title"  href="product-layout1.html">Digital SLR Camera</a>
                                 <div class="priceRow mt-2 mb-3">
                                     <div class="product-price m-0"><span class="old-price">$114.00</span><span
                                             class="price">$99.00</span></div>
@@ -192,50 +192,7 @@
                         </div>
                     </div>
                     <!-- End Product Info -->
-                    <!-- Swatches Color -->
-                    <div class="variants-clr swatches-image clearfix mb-3 swatch-0 option1"
-                        data-option-index="0">
-                        <label class="label d-flex justify-content-center">Color:<span
-                                class="slVariant ms-1 fw-bold">Black</span></label>
-                        <ul class="swatches d-flex-justify-center pt-1 clearfix">
-                            <li class="swatch large radius available active"><img
-                                    src="assets/images/products/swatches/blue-red.jpg" alt="image" width="70"
-                                    height="70" data-bs-toggle="tooltip" data-bs-placement="top" title="Blue" />
-                            </li>
-                            <li class="swatch large radius available"><img
-                                    src="assets/images/products/swatches/blue-red.jpg" alt="image" width="70"
-                                    height="70" data-bs-toggle="tooltip" data-bs-placement="top"
-                                    title="Black" /></li>
-                            <li class="swatch large radius available"><img
-                                    src="assets/images/products/swatches/blue-red.jpg" alt="image" width="70"
-                                    height="70" data-bs-toggle="tooltip" data-bs-placement="top" title="Pink" />
-                            </li>
-                            <li class="swatch large radius available green"><span class="swatchLbl"
-                                    data-bs-toggle="tooltip" data-bs-placement="top" title="Green"></span></li>
-                            <li class="swatch large radius soldout yellow"><span class="swatchLbl"
-                                    data-bs-toggle="tooltip" data-bs-placement="top" title="Yellow"></span></li>
-                        </ul>
-                    </div>
-                    <!-- End Swatches Color -->
-                    <!-- Swatches Size -->
-                    <div class="variants-size swatches-size clearfix mb-4 swatch-1 option2"
-                        data-option-index="1">
-                        <label class="label d-flex justify-content-center">Size:<span
-                                class="slVariant ms-1 fw-bold">S</span></label>
-                        <ul class="size-swatches d-flex-justify-center pt-1 clearfix">
-                            <li class="swatch large radius soldout"><span class="swatchLbl"
-                                    data-bs-toggle="tooltip" data-bs-placement="top" title="XS">XS</span></li>
-                            <li class="swatch large radius available active"><span class="swatchLbl"
-                                    data-bs-toggle="tooltip" data-bs-placement="top" title="S">S</span></li>
-                            <li class="swatch large radius available"><span class="swatchLbl"
-                                    data-bs-toggle="tooltip" data-bs-placement="top" title="M">M</span></li>
-                            <li class="swatch large radius available"><span class="swatchLbl"
-                                    data-bs-toggle="tooltip" data-bs-placement="top" title="L">L</span></li>
-                            <li class="swatch large radius available"><span class="swatchLbl"
-                                    data-bs-toggle="tooltip" data-bs-placement="top" title="XL">XL</span></li>
-                        </ul>
-                    </div>
-                    <!-- End Swatches Size -->
+                
                     <!-- Product Action -->
                     <div class="product-form-submit d-flex-justify-center">
                         <button type="submit" name="add"
@@ -277,23 +234,20 @@
                             <!-- Product Info -->
                             <div class="product-details">
                                 <div class="variant-cart mb-1">Electronic</div>
-                                <a class="product-title" href="product-layout1.html">Digital SLR Camera</a>
+                                <a class="product-title" id="cart-title" href="product-layout1.html">Digital SLR Camera</a>
                                 <p class="product-clr my-2 text-muted">Black / XL</p>
                             </div>
                             <div class="addcart-total rounded-5">
-                                <p class="product-items mb-2">There are <strong>1</strong> items in your cart
-                                </p>
-                                <p class="d-flex-justify-center">Total: <span class="price">$198.00</span></p>
+                                <p class="d-flex-justify-center"  id="cart-price">Total: <span class="price">$198.00</span></p>
                             </div>
                             <!-- End Product Info -->
                             <!-- Product Action -->
                             <div class="product-form-submit d-flex-justify-center">
-                                <a href="#" class="btn btn-outline-primary product-continue w-100">Continue
+                                <a href="#" data-bs-dismiss="modal" class="btn btn-outline-primary product-continue w-100">Continue
                                     Shopping</a>
-                                <a href="cart-style1.html"
+                                <a href="<?= base_url('/cart') ?>"
                                     class="btn btn-secondary product-viewcart w-100 my-2 my-md-3">View Cart</a>
-                                <a href="checkout-style1.html"
-                                    class="btn btn-primary product-checkout w-100">Proceed to checkout</a>
+        
                             </div>
                             <!-- End Product Action -->
                         </div>
