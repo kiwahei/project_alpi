@@ -11,6 +11,7 @@
     
   <link rel="stylesheet" crossorigin href="<?= base_url()  ?>assets/admin/compiled/css/app.css">
   <link rel="stylesheet" crossorigin href="<?= base_url()  ?>assets/admin/compiled/css/app-dark.css">
+  <link rel="stylesheet" crossorigin href="<?= base_url()  ?>assets/admin/compiled/css/auth.css">
 </head>
 <body>
     <script src="<?= base_url()  ?>assets/admin/static/js/initTheme.js"></script>

@@ -33,7 +33,6 @@ class Auth extends CI_Controller {
                         'logged_in' => TRUE,
                         'admin_id'  => $admin['id'],
                         'email'     => $admin['email'],
-                        'role_id'   => $admin['role_id']
                     );
                     $this->session->set_userdata($session_data);
 
@@ -50,7 +49,7 @@ class Auth extends CI_Controller {
         }
 
         // Load the login view (located in 'views/admin/auth/index.php')
-        $this->load->view('admin/auth/index');
+        $this->load->view('admin/auth/login');
     }
 
     // Logout function
