@@ -75,7 +75,7 @@ class Auth extends CI_Controller {
 
         // If form validation fails
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('menu/pages/my_account/register');
+            $this->load->view('web/auth/register/index');
         } else {
             // If form validation passes, proceed with registration
             $email = $this->input->post('email');
@@ -99,7 +99,7 @@ class Auth extends CI_Controller {
             } else {
                 // Set flashdata for error message
                 $this->session->set_flashdata('error', 'Failed to register. Please try again.');
-                redirect('menu/pages/my_account/register');
+                redirect('auth/register');
             }
         }
     }
