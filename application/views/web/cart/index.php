@@ -54,7 +54,7 @@
                                         <a href="<?= base_url() ?>cart/remove/<?= $c['id']?>" class="cart-remove remove-icon position-static" data-bs-toggle="tooltip" data-bs-placement="top" title="Remove to Cart"><i class="icon anm anm-times-r"></i></a>
                                     </td>
                                     <td class="cart-image cart-flex-item">
-                                        <a href="product-layout1.html">
+                                        <a href="<?= base_url("/product/view/").$c['product_id'] ?>">
                                             <img class="cart-image rounded-0 blur-up lazyload" data-src="<?= base_url("/uploads/product/").$c["product_image"] ?>" src="<?= base_url("/uploads/product/").$c["product_image"] ?>" alt="Sunset Sleep Scarf Top" width="120" height="170" /></a>
                                     </td>
                                     <td class="cart-meta small-text-left cart-flex-item">

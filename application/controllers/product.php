@@ -21,6 +21,7 @@ class Product extends CI_Controller {
 		$menus = $this->menu_model->get_menus();
 		$data['menus'] = $menus;
 		$data['product'] = $product;
+		$data['product']->price = $currency = number_format($product->price, 0, ',', '.'); 
 		$this->load->view('web/product/single', $data);
 	}
     

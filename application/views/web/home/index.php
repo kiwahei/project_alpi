@@ -184,7 +184,7 @@
                                 <!-- Start Product Image -->
                                 <div class="">
                                     <!-- Start Product Image -->
-                                    <a href="product-layout1.html" class="product-img">
+                                    <a href="<?= base_url("/product/view/").$p['id'] ?>" class="product-img">
                                         <!-- Image -->
                                         <img class="primary lazyload"
                                             data-src="<?= base_url("/uploads/product/").$p['image']?>"
@@ -203,7 +203,7 @@
                                     <!--End Product Vendor-->
                                     <!-- Product Name -->
                                     <div class="product-name">
-                                        <a href="product-layout1.html"><?= $p['name'] ?></a>
+                                        <a href="<?= base_url("/product/view/").$p['id'] ?>"><?= $p['name'] ?></a>
                                     </div>
                                     <!-- End Product Name -->
                                     <!-- Product Price -->
