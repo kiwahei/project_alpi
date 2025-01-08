@@ -4,6 +4,9 @@ class Courier extends CI_Controller
 
     public function __construct() {
         parent::__construct();
+        if(!$this->session->userdata("admin_id")){
+            redirect(base_url("/admin/auth/login"));
+        }
         $this->load->model('courier_model');
         $this->load->library(['form_validation', 'session']);
 	}

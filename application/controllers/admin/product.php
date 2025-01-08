@@ -6,6 +6,9 @@ class Product extends CI_Controller
 
     public function __construct() {
         parent::__construct();
+        if(!$this->session->userdata("admin_id")){
+            redirect(base_url("/admin/auth/login"));
+        }
         $this->load->model('product_model');
         $this->load->model('category_model');
         $this->load->library(['form_validation', 'session']);

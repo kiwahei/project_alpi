@@ -30,9 +30,9 @@ class Auth extends CI_Controller {
                 if (password_verify($password, $admin['password'])) {
                     // Password is correct, set session data
                     $session_data = array(
-                        'logged_in' => TRUE,
+                        'admin_logged_in' => TRUE,
                         'admin_id'  => $admin['id'],
-                        'email'     => $admin['email'],
+                        'admin_email'     => $admin['email'],
                     );
                     $this->session->set_userdata($session_data);
 

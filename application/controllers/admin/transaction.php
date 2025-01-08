@@ -5,6 +5,9 @@ class Transaction extends CI_Controller
 
     public function __construct() {
         parent::__construct();
+        if(!$this->session->userdata("admin_id")){
+            redirect(base_url("/admin/auth/login"));
+        }
         $this->load->model('transaction_model');
         $this->load->model('transaction_item_model');
         $this->load->model('product_model');
@@ -139,7 +142,7 @@ class Transaction extends CI_Controller
 
 
     function store(){
-        $customer_id = $this->input->post('name');
+        $name = $this->input->post('name');
         $description= $this->input->post('description');
         $price = $this->input->post('price');
 
@@ -156,7 +159,7 @@ class Transaction extends CI_Controller
     }
 
     function update($id = null){
-        $customer_id = $this->input->post('name');
+        $name = $this->input->post('name');
         $description= $this->input->post('description');
         $price = $this->input->post('price');
 
