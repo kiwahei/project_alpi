@@ -1,4 +1,5 @@
 <?php
+use Mpdf\Mpdf;
 
 
 class Product extends CI_Controller
@@ -110,6 +111,35 @@ class Product extends CI_Controller
         $this->product_model->update($id, $data);
         $this->session->set_flashdata('message', 'Data berhasil diedit!');
         redirect('admin/product');
+    }
+
+    function export(){
+ 
+        require_once 'vendor/autoload.php';
+        $data['title'] = "Laporan Data";
+        $products = $this->product_model->getAll();
+  
+        $datalist= [];
+        foreach($products as $product){
+            $category = $this->category_model->getById($product['category_id']);
+            $datalist[] = [
+                "id"=> $product['id'],
+                "name"=> $product['name'],
+                "price"=> $product['price'],
+                "category_name"=> $category->name,
+            ];
+        }
+
+        $data["products"] = $datalist;
+
+        // $this->load->view("admin/product/pdf", $data);
+    
+       
+        $html = $this->load->view('admin/product/pdf', $data, true);
+
+        $mpdf = new Mpdf();
+        $mpdf->WriteHTML($html);
+        $mpdf->Output('product.pdf', 'D'); 
     }
 
 
