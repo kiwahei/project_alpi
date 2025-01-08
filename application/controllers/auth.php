@@ -78,6 +78,7 @@ class Auth extends CI_Controller {
             $this->load->view('web/auth/register/index');
         } else {
             // If form validation passes, proceed with registration
+            $name = $this->input->post('name');
             $email = $this->input->post('email');
             $password = password_hash($this->input->post('password'), PASSWORD_DEFAULT); // Hash password
 
@@ -85,6 +86,7 @@ class Auth extends CI_Controller {
             $data = [
                 'email' => $email,
                 'password' => $password,
+                'name' => $name,
                 'is_active' => 1,  // Active user by default
                 'created_at' => date('Y-m-d H:i:s')  // Timestamp for registration
             ];

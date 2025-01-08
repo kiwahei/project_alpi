@@ -35,6 +35,17 @@
                         <p class="alert alert-danger"><?php echo $this->session->flashdata('error'); ?></p>
                     <?php endif; ?>
 
+                    <div class="form-group">
+                        <label for="name" class="form-label">Name <span class="required text-danger">*</span></label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            class="form-control" 
+                            placeholder="Enter your password" 
+                            required>
+                    </div>
+
                     <!-- Email field -->
                     <div class="form-group">
                         <label for="email" class="form-label">Email <span class="required text-danger">*</span></label>
