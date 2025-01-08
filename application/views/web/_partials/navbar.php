@@ -73,10 +73,10 @@
                 <ul class="m-0">
                     <?php if ($this->session->userdata('user_id')): ?>
                         <li>
-    <a href="<?php echo site_url('profile/account'); ?>">
-        <i class="icon anm anm-user-cil"></i>My Account
-    </a>
-</li>
+                            <a href="<?php echo site_url('profile'); ?>">
+                                <i class="icon anm anm-user-cil"></i>My Account
+                            </a>
+                        </li>
 
                         <li>
                             <a href="<?php echo site_url('auth/logout'); ?>">

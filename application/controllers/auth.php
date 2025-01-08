@@ -104,6 +104,23 @@ class Auth extends CI_Controller {
         }
     }
 
+    public function changePassword(){
+        $newPassword = $this->input->post("new-password");
+        $userId = $this->session->userdata('user_id');
+        $this->User_model->changePassword($userId, $newPassword);
+        $this->session->set_flashdata('success', 'Change password success!');
+        redirect('profile');
+    }
+
+    public function edit(){
+        $name = $this->input->post("name");
+        $email = $this->input->post("email");
+        $userId = $this->session->userdata('user_id');
+        $this->User_model->edit($userId, $name, $email);
+        $this->session->set_flashdata('success', 'Edit success!');
+        redirect('profile');
+    }
+
     public function logout() {
         // Destroy session data
         $this->session->sess_destroy();

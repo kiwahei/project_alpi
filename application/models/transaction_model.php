@@ -21,6 +21,12 @@ class Transaction_Model extends CI_Model {
         return $query->result_array();
     }
 
+    public function getAllByUserId($userId){
+
+        $query = $this->db->query("SELECT * from $this->table WHERE user_id = '$userId'");
+        return $query->result_array();
+    }
+
     public function getById($id){
         $query = $this->db->get_where($this->table, array('id' => $id));
         if ($query->num_rows() > 0) {

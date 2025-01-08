@@ -81,6 +81,7 @@ class Trx extends CI_Controller {
         foreach ($trxItems as $trxItem) {
             $product = $this->product_model->getById($trxItem["product_id"]);
             $product->quantity = $trxItem["quantity"];
+            $product->subtotal = $trxItem["subtotal"];
             $products[] = $product;
         }
 

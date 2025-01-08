@@ -20,8 +20,8 @@
                         <tbody>
                             <?php foreach($products as $product): ?>
                             <tr>
-                                <td class="text-start"><a href="product-layout1.html" class="thumb"><img class="rounded-0 blur-up lazyload" data-src="assets/images/products/product1-120x170.jpg" src="assets/images/products/product1-120x170.jpg" alt="product" title="product" width="120" height="170"></a></td>
-                                <td class="text-start proName">
+                                <td class="text-start"><a href="<?= base_url('/product/view/').$product->id ?>" class="thumb"><img class="rounded-0 blur-up lazyload" data-src="<?= base_url('/uploads/product/').$product->image ?>" src="<?= base_url('/uploads/product/').$product->image ?>" alt="product" title="product" width="120" height="170"></a></td>
+                                <td class="text-start proName"
                                     <div class="list-view-item-title">
                                         <a href="product-layout1.html"><?= $product->name ?></a>
                                     </div>
@@ -31,7 +31,7 @@
                                 </td>
                                 <td class="text-center"><?= $product->quantity ?></td>
                                 <td class="text-center"><?= $product->price ?></td>
-                                <td class="text-center"><strong>$198.00</strong></td>
+                                <td class="text-center"><strong><?= $product->subtotal ?></strong></td>
                             </tr>
                             <?php endforeach ?>
                             

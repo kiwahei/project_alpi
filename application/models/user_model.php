@@ -27,6 +27,16 @@ class User_model extends CI_Model {
         return false; // Return false if authentication fails
     }
 
+    public function changePassword($userId, $newPassword){
+        $this->db->where('id_user', $userId);
+        $this->db->update('user', array('password'=> password_hash($newPassword, PASSWORD_DEFAULT)));
+    }
+
+    public function edit($userId, $name, $email){
+        $this->db->where('id_user', $userId);
+        $this->db->update('user', array('name'=> $name,'email'=> $email));
+    }
+
     public function getById($id){
         $this->db->where('id_user', $id);
         $query = $this->db->get('user');
