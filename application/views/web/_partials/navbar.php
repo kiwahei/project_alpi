@@ -75,11 +75,11 @@
                         <div class="customer-links">
                             <ul class="m-0">
                                 <?php if(!$this->session->userdata("user_id")): ?>
-                                <li><a href="login.html"><i class="icon anm anm-sign-in-al"></i>Sign In</a></li>
-                                <li><a href="register.html"><i class="icon anm anm-user-al"></i>Register</a></li>
+                                <li><a href="<?= base_url("/auth/login") ?>"><i class="icon anm anm-sign-in-al"></i>Sign In</a></li>
+                                <li><a href="<?= base_url("/auth/register") ?>"><i class="icon anm anm-user-al"></i>Register</a></li>
                                 <?php else: ?>
-                                <li><a href="my-account.html"><i class="icon anm anm-user-cil"></i>My Account</a></li>
-                                <li><a href="login.html"><i class="icon anm anm-sign-out-al"></i>Sign out</a></li>
+                                <li><a href="<?= base_url("/profile") ?>"><i class="icon anm anm-user-cil"></i>My Account</a></li>
+                                <li><a href="<?= base_url("/auth/logout") ?>"><i class="icon anm anm-sign-out-al"></i>Sign out</a></li>
                                 <?php endif; ?>
                             </ul>
                         </div>
