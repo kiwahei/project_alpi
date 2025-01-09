@@ -16,6 +16,17 @@ class Product_Model extends CI_Model {
         return $query->result_array();
     }
 
+    public function search($keyword){ 
+        $result = $this->db->like('name', $keyword)
+        ->get($this->table);
+
+        return $result->result_array();
+    }
+    public function getAllForHome(){
+        $query = $this->db->query("SELECT * from $this->table LIMIT 10");
+        return $query->result_array();
+    }
+
     public function getById($id){
         $query = $this->db->get_where($this->table, array('id' => $id));
         if ($query->num_rows() > 0) {

@@ -53,5 +53,29 @@ class Product extends CI_Controller {
 
 		$this->load->view('web/product/index', $data);
 	}
+
+	public function search($keyword){
+		$products = $this->product_model->search($keyword);
+		$menus = $this->menu_model->get_menus();
+		$data['menus'] = $menus;
+		$datalist = [];
+		
+	
+		foreach($products as $product){
+			$category = $this->category_model->getById($product['category_id']);
+			$datalist[] = [
+				"id" => $product["id"],
+				"name"=> $product["name"],
+				"image"=> $product["image"],
+				"price"=> $product["price"],
+				"category"=> $category->name,
+			];
+		}
+
+		$data["products"] = $datalist;
+		$data["keyword"] = $keyword;
+
+		$this->load->view('web/product/search', $data);
+	}
     
 }

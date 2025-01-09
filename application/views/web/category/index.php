@@ -18,19 +18,23 @@
     </div>
     
     <div class="container">
-        <div class="row">
-            <div class="col">
-                <img src="<?= base_url("/uploads/product/").$product->image ?>" alt="">
+        <div class="collection-style1 row col-row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-2">
+            <?php foreach($categories as $c): ?>
+            <div class="category-item col-item zoomscal-hov">
+                <a href="<?= base_url("/category/view/").$c["id"] ?>" class="category-link clr-none">
+                    <div class="zoom-scal zoom-scal-nopb"><img class="blur-up w-100 lazyloaded" data-src="<?= base_url('/uploads/category/').$c['image'] ?>" src="<?= base_url('/uploads/category/').$c['image'] ?>" alt="<?= $c["name"] ?>" title="<?= $c["name"] ?>" width="365" height="365"></div>
+                    <div class="details mt-3 d-flex justify-content-between align-items-center">
+                        <h4 class="category-title mb-0"><?= $c["name"] ?></h4>
+                        <p class="counts"><?= $c["size"] ?> Items</p>
+                    </div>
+                </a>
             </div>
-            <div class="col">
-                <div class="h1"><?= $product->name ?></div>
-                <div class="h2">Rp. <?= $product->price ?></div>
-                <p><?= $product->description ?></p>
-                <button data-product-id="<?= $product->id ?>" data-product-name="<?= $product->name ?>" data-product-price="<?= $product->price ?>" data-product-image="<?= $product->image ?>" class="add-to-cart btn btn-primary">Add to Cart</button>
-            </div>
+            <?php endforeach ?>
+            
         </div>
     </div>
 </div>
+
 
 <script>
 $(document).ready(function() {
@@ -50,6 +54,7 @@ $(document).ready(function() {
             data: { product_id: product_id },
             dataType: 'json',
             success: function(response) {
+               
                 if(response.status == "error"){
                     alert('Youre not logged in, please login first!');
                     window.location.href = base_url+"/auth/login"
@@ -75,6 +80,9 @@ $(document).ready(function() {
     }
 });
 </script>
+
+
+
 
 
 

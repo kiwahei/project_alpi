@@ -8,7 +8,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex justify-content-between align-items-center">
-                    <div class="page-title"><h1>Product</h1></div>
+                    <div class="page-title"><h1>Search: <?= $keyword ?></h1></div>
                     <!--Breadcrumbs-->
                     <!-- <div class="breadcrumbs"><a href="index.html" title="Back to the home page">Home</a><span class="main-title"><i class="icon anm anm-angle-right-l"></i>Your Shopping Cart Style1</span></div> -->
                     <!--End Breadcrumbs-->
@@ -18,20 +18,6 @@
     </div>
     
     <div class="container">
-        <div class="collection-slider-6items gp10 slick-arrow-dots sub-collection section pt-0">
-            <?php foreach($categories as $c): ?>
-            <div class="category-item zoomscal-hov">
-                <a href="" class="category-link clr-none">
-                    <div class="zoom-scal zoom-scal-nopb rounded-0"><img class="rounded-0 blur-up lazyload" data-src="<?= base_url("/uploads/category/").$c["image"] ?>" src="<?= base_url("/uploads/category/").$c["image"] ?>" alt="<?= $c['name'] ?>" title="<?= $c['name'] ?>" width="365" height="365" /></div>
-                    <div class="details text-center">
-                        <h4 class="category-title mb-0"><?= $c['name'] ?></h4>
-                        <p class="counts"><?= $c['size'] ?></p>
-                    </div>
-                </a>
-            </div>
-            <?php endforeach; ?>
-           
-        </div>
         <div class="toolbar toolbar-wrapper shop-toolbar">
             <div class="row align-items-center">
                 <div class="col-4 col-sm-2 col-md-4 col-lg-4 text-left filters-toolbar-item d-flex order-1 order-sm-0">

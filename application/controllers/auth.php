@@ -75,7 +75,8 @@ class Auth extends CI_Controller {
 
         // If form validation fails
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('web/auth/register/index');
+            $data['menus'] = $this->menu_model->get_menus();
+            $this->load->view('web/auth/register/index', $data);
         } else {
             // If form validation passes, proceed with registration
             $name = $this->input->post('name');

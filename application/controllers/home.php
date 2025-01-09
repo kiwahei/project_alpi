@@ -14,7 +14,7 @@ class Home extends CI_Controller {
     public function index() {
         $data['menus'] = $this->menu_model->get_menus();
         $data['categories'] = $this->category_model->getAll();
-        $data['products'] = $this->product_model->getAll();
+        $data['products'] = $this->product_model->getAllForHome();
         $this->load->view('web/home/index', $data);
     }
 }

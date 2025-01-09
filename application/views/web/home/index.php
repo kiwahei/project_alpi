@@ -9,7 +9,7 @@
             <div class="slide">
                 <div class="slideshow-wrap">
                     <picture>
-                        <source media="(max-width:767px)" srcset="assets/images/slideshow/demo4-banner1-mbl.jpg"
+                        <source media="(max-width:767px)" srcset="assets/images/slideshow/demo4-banner1.jpg"
                             width="1000" height="990">
                         <img class="blur-up lazyload" src="assets/images/slideshow/demo4-banner1.jpg"
                             alt="slideshow" title="" width="1920" height="990" />
@@ -33,7 +33,7 @@
             <div class="slide">
                 <div class="slideshow-wrap">
                     <picture>
-                        <source media="(max-width:767px)" srcset="assets/images/slideshow/demo4-banner2-mbl.jpg"
+                        <source media="(max-width:767px)" srcset="assets/images/slideshow/demo4-banner2.jpg"
                             width="1000" height="990">
                         <img class="blur-up lazyload" src="assets/images/slideshow/demo4-banner2.jpg"
                             alt="slideshow" title="" width="1920" height="990" />
@@ -119,7 +119,7 @@
                    
 
                 <div class="category-item zoomscal-hov overlay-content">
-                    <a href="shop-left-sidebar.html" class="category-link clr-none">
+                    <a href="<?= base_url("/category/view/").$c["id"] ?>" class="category-link clr-none">
                         <div class="zoom-scal">
                             <img class="blur-up lazyload"
                                 data-src="<?= base_url('/uploads/category/').$c['image'] ?>"
@@ -208,7 +208,7 @@
                                     <!-- End Product Name -->
                                     <!-- Product Price -->
                                     <div class="product-price">
-                                        <span class="price">Rp. <?= $p['price'] ?></span>
+                                        <span class="price">Rp. <?= number_format($p['price'], 0, ',', '.')  ?></span>
                                     </div>
                                     <!-- End Product Price -->
                                     <!-- Product Review -->
@@ -325,10 +325,12 @@ $(document).ready(function() {
             data: { product_id: product_id },
             dataType: 'json',
             success: function(response) {
-                alert('Item added to cart!');
+           
                 if(response.status == "error"){
+                    alert('Youre not logged in, please login first!');
                     window.location.href = base_url+"/auth/login"
                 }else{
+                    alert('Item added to cart!');
                     showAddToCartPopUp(product_name,product_price, product_image)
                 }
             },
