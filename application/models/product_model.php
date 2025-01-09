@@ -26,6 +26,16 @@ class Product_Model extends CI_Model {
        
     }
 
+    public function getByCategoryId($id){
+        $query = $this->db->get_where($this->table, array('category_id' => $id));
+        if ($query->num_rows() > 0) {
+            return $query->result_array(); 
+        } else {
+            return null;  
+        }
+       
+    }
+
     public function add($data){
         $this->db->insert($this->table, $data);
     }
