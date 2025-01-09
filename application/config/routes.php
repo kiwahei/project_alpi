@@ -145,3 +145,4 @@ $route['pages/forgot_password'] = 'pages/forgot_password';
 $route['auth/register'] = 'auth/register';
 $route['pages/my_account'] = 'pages/my_account';
 $route['auth/register'] = 'auth/register';
+$route['admin'] = 'admin/auth/login';

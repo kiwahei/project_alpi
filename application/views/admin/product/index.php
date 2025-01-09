@@ -19,7 +19,7 @@
                     </h5>
                     <div class="col-auto d-flex align-items-center">
                         <div class="me-1">Export</div>
-                        <a href="<?= base_url()?>admin/product/add"  class="btn btn-primary" >PDF</a>
+                        <a href="<?= base_url()?>admin/product/export"  class="btn btn-primary" >PDF</a>
                         <div style="border-left:1px solid #000;height:100%;" class="mx-2"></div>
                         <a href="<?= base_url()?>admin/product/add"  class="btn btn-primary" >+ Add Product</a>
                     </div>

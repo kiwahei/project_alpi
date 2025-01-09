@@ -12,6 +12,8 @@
   <link rel="stylesheet" crossorigin href="<?= base_url()  ?>assets/admin/compiled/css/app.css">
   <link rel="stylesheet" crossorigin href="<?= base_url()  ?>assets/admin/compiled/css/app-dark.css">
   <link rel="stylesheet" crossorigin href="<?= base_url()  ?>assets/admin/compiled/css/auth.css">
+  <link rel="stylesheet" crossorigin href="<?= base_url() ?>assets/admin/compiled/css/table-datatable.css">
+  <link rel="stylesheet" href="<?= base_url() ?>assets/admin/extensions/simple-datatables/style.css">
 </head>
 <body>
     <script src="<?= base_url()  ?>assets/admin/static/js/initTheme.js"></script>

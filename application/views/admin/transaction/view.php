@@ -13,12 +13,38 @@
             <div class="card-header">
                 <div>
                 <h5 class="card-title col">
-                    New Transaction
+                    View Transaction
                 </h5>
                 </div>
              
             </div>
             <div class="card-body">
+                <ol class="list-group mb-3">
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                        <div class="fw-bold">Transaction ID</div>
+                            <?= $trx->id ?>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                        <div class="fw-bold">Created at</div>
+                            <?= $trx->created_at ?>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                        <div class="fw-bold">Courier</div>
+                            <?=  $courier->name ?>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                        <div class="fw-bold">Payment</div>
+                            <?=  $payment->name ?>
+                        </div>
+                    </li>
+                </ol>
 
                 <table class="table">
                     <thead>
@@ -33,14 +59,14 @@
                         <?php foreach ($trxs as $t): ?>
                         <tr>
                             <td><?= $t["product_name"] ?></td>
-                            <td><?= $t["product_price"] ?></td>
+                            <td>Rp. <?= $t["product_price"] ?></td>
                             <td><?= $t["quantity"] ?></td>
-                            <td class="text-end"><?= $t["subtotal"] ?></td>
+                            <td class="text-end">Rp. <?= $t["subtotal"] ?></td>
                         </tr>
                         <?php endforeach; ?>
                         <tr class="bg-primary">
                             <td colspan="3" class="text-white">TOTAL</td>
-                            <td class="text-end text-white" ><?= $trx->total_price ?></td>
+                            <td class="text-end text-white" >Rp. <?= number_format($trx->total_price, 0, ',', '.') ?></td>
                         </tr>
                     </tbody>
                 </table>

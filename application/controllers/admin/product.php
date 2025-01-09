@@ -140,6 +140,8 @@ class Product extends CI_Controller
         $mpdf = new Mpdf();
         $mpdf->WriteHTML($html);
         $mpdf->Output('product.pdf', 'D'); 
+
+        redirect('/admin/product');
     }
 
 

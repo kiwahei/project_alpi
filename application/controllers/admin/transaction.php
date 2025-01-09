@@ -1,5 +1,5 @@
 <?php
-
+use Mpdf\Mpdf;
 class Transaction extends CI_Controller
 {
 
@@ -11,6 +11,8 @@ class Transaction extends CI_Controller
         $this->load->model('transaction_model');
         $this->load->model('transaction_item_model');
         $this->load->model('product_model');
+        $this->load->model('courier_model');
+        $this->load->model('payment_model');
         $this->load->model('user_model');
         $this->load->library(['form_validation', 'session']);
 	}
@@ -88,19 +90,23 @@ class Transaction extends CI_Controller
     function view($trxId){
         $trx = $this->transaction_model->getById($trxId);
         $trxs = $this->transaction_item_model->getAllByTransactionId($trxId);
+        $data["courier"] = $this->courier_model->getById($trx->courier_id);
+        $data["payment"] = $this->payment_model->getById($trx->payment_id);
 
         $transaction_items = [];
 
         foreach ($trxs as $t) {
             $product = $this->product_model->getById($t["product_id"]);
-            
+           
             $transaction_items[] = [
                 "product_name"=> $product->name,
                 "product_id"=> $t["product_id"],
-                "product_price"=> $product->price,
+                "product_price"=> number_format($product->price, 0, ',', '.'),
                 "quantity"=> $t["quantity"],
-                "subtotal" => (int)$product->price * (int)$t["quantity"],
+                "subtotal" => number_format((int)$product->price * (int)$t["quantity"], 0, ',', '.'),
             ];
+
+
             
         }
 
@@ -182,5 +188,37 @@ class Transaction extends CI_Controller
         redirect('admin/product');
 
     }
+    function export($type){
+        require_once 'vendor/autoload.php';
+
     
+        $trxs = $this->transaction_model->getAll();
+  
+        $datalist= [];
+        foreach($trxs as $trx){
+            $courier = $this->courier_model->getById($trx['courier_id']);
+            $payment = $this->payment_model->getById($trx['payment_id']);
+            $datalist[] = [
+                "id"=> $trx['id'],
+                "created_at"=> $trx['created_at'],
+                "courier"=> $courier->name,
+                "payment"=> $payment->name,
+                "total_price"=> $trx['total_price'],
+                "status"=> $trx['status'],
+            ];
+        }
+
+        $data["trxs"] = $datalist;
+
+        // $this->load->view("admin/product/pdf", $data);
+    
+       
+        $html = $this->load->view('admin/transaction/pdf', $data, true);
+
+        $mpdf = new Mpdf();
+        $mpdf->WriteHTML($html);
+        $mpdf->Output('product.pdf', 'D'); 
+
+        redirect('/admin/transaction/all');
+    }
 }

@@ -26,6 +26,8 @@ class Courier_Model extends CI_Model {
        
     }
 
+
+
     public function add($data){
         $this->db->insert($this->table, $data);
     }
