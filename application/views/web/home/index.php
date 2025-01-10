@@ -108,7 +108,7 @@
                     <p>Shop our new arrivals from established brands</p>
                 </div>
                 <div class="section-header-right text-start text-sm-end mt-3 mt-sm-0">
-                    <a href="shop-left-sidebar.html" class="btn btn-primary">View All Category <i
+                    <a href="<?= base_url("/category") ?>" class="btn btn-primary">View All Category <i
                             class="icon anm anm-arw-right ms-2"></i></a>
                 </div>
             </div>
@@ -150,7 +150,7 @@
                     <p>Shop our new arrivals from established brands</p>
                 </div>
                 <div class="section-header-right text-start text-sm-end mt-3 mt-sm-0">
-                    <a href="shop-left-sidebar.html" class="btn btn-primary">View More <i
+                    <a href="<?= base_url("/product") ?>" class="btn btn-primary">View More <i
                             class="icon anm anm-arw-right ms-2"></i></a>
                 </div>
             </div>
@@ -169,8 +169,6 @@
                                 Collections</h2>
                             <p class="ctg-des mt-3 mb-4">Shop our weekly edit of what's new in online at Hema
                                 collections.</p>
-                            <a class="btn btn-secondary explore-btn" href="shop-left-sidebar.html">Explore Now
-                                <i class="icon anm anm-arw-right ms-2"></i></a>
                         </div>
                     </div>
                 </div>
