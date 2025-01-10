@@ -26,6 +26,11 @@ class Menu_model extends CI_Model {
         $this->db->insert("sub_menu", $data);
     }
 
+    public function deleteSubMenuByCategoryId($catId){
+        $this->db->where('category_id', $catId);
+        $this->db->delete('sub_menu');
+    }
+
     private function get_submenus($menu_id) {
         // Ambil submenu berdasarkan menu_id
         $this->db->select('name, url'); // Pastikan kolom "name" ada di tabel

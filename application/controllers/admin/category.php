@@ -103,6 +103,8 @@ class Category extends CI_Controller
 
     function delete($id){
         $category = $this->category_model->getById($id);
+        $this->menu_model->deleteSubMenuByCategoryId($id);
+   
         unlink(FCPATH.'/uploads/category/'.$category->image);
         $this->category_model->delete($id);
         $this->session->set_flashdata('message', 'Data berhasil didelete!');

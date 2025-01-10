@@ -25,7 +25,7 @@ class Dashboard extends CI_Controller {
         $products = $this->product_model->getAll();
         $users = $this->User_model->getAll();
         $totalProduct = is_countable($products) ? count($products) : 0;;
-        $totalTransaction = is_countable($transaction) ? count($transactions) : 0;;
+        $totalTransaction = is_countable($transactions) ? count($transactions) : 0;;
         $totalUser = is_countable($users) ? count($users) : 0;
 
 
