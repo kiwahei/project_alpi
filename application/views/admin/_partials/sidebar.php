@@ -43,8 +43,8 @@
                 <li class="sidebar-title">Menu</li>
                 
                 <li
-                    class="sidebar-item  ">
-                    <a href="index.html" class='sidebar-link'>
+                    class="sidebar-item  <?php if($this->uri->segment(2) == "dashboard"): ?> active <?php endif; ?> ">
+                    <a href="<?php echo site_url('admin/dashboard'); ?>" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Dashboard</span>
                     </a>
@@ -52,7 +52,7 @@
 
                 </li>
                 <li
-                    class="sidebar-item  ">
+                    class="sidebar-item <?php if($this->uri->segment(2) == "product"): ?> active <?php endif; ?>">
                     <a href="<?php echo site_url('admin/product'); ?>" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Product</span>
@@ -62,7 +62,7 @@
                 </li>
 
                 <li
-                    class="sidebar-item  ">
+                    class="sidebar-item  <?php if($this->uri->segment(2) == "category"): ?> active <?php endif; ?>">
                     <a href="<?php echo site_url('admin/category'); ?>" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Category</span>
@@ -72,7 +72,7 @@
                 </li>
 
                 <li
-                    class="sidebar-item  ">
+                    class="sidebar-item <?php if($this->uri->segment(2) == "transaction"): ?> active <?php endif; ?>">
                     <a href="<?php echo site_url('admin/transaction'); ?>" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Order</span>
@@ -81,7 +81,7 @@
                 <li
                     class="sidebar-item  ">
                     <a href="<?php echo site_url('admin/auth/logout'); ?>" class='sidebar-link'>
-                        <i class="bi bi-grid-fill"></i>
+                        <i class="bi bi-box-arrow-left"></i>
                         <span>Logout</span>
                     </a>
                 </li>

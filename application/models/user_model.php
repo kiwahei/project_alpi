@@ -8,6 +8,11 @@ class User_model extends CI_Model {
         parent::__construct();
     }
 
+    public function getAll(){
+        $query = $this->db->query("SELECT * from user");
+        return $query->result_array();
+    }
+
     // Authenticate user by email and password
     public function authenticate($email, $password)
     {
