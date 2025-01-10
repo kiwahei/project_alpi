@@ -20,7 +20,7 @@ class Dashboard extends CI_Controller {
         $transactions = $this->transaction_model->getAll();
         $totalReveneuTransaction = 0;
         foreach($transactions as $transaction){
-            $totalReveneuTransaction += $transaction->total_price;
+            $totalReveneuTransaction += $transaction["total_price"];
         }
 
         $totalProduct = count($this->product_model->getAll());
