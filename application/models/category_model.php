@@ -27,8 +27,8 @@ class Category_Model extends CI_Model {
     }
 
     public function add($data){
-        $result = $this->db->insert($this->table, $data);
-        return $result->insert_id();
+        $this->db->insert($this->table, $data);
+        return $this->db->insert_id();
     }
 
     public function update($id, $data){
