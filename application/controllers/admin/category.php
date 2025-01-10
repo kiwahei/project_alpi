@@ -8,6 +8,7 @@ class Category extends CI_Controller
             redirect(base_url("/admin/auth/login"));
         }
         $this->load->model('category_model');
+        $this->load->model('menu_model');
         $this->load->library(['form_validation', 'session']);
        
 	}
@@ -55,7 +56,18 @@ class Category extends CI_Controller
             'created_at' => date('Y-m-d H:i:s'),
         ];
 
-        $this->category_model->add($data);
+        $catId = $this->category_model->add($data);
+        if($catId){
+            $subMenu = [
+                "name" => $name,
+                "menu_id" => 4,
+                "url" => "category/view/".$catId,
+                "createDate" => date('Y-m-d H:i:s')
+            ];
+            $this->menu_model->addSubMenu($subMenu);
+        }
+      
+       
         $this->session->set_flashdata('message', 'Data berhasil disimpan!');
         redirect('admin/category');
     }

@@ -22,6 +22,10 @@ class Menu_model extends CI_Model {
         return $menus;
     }
 
+    public function addSubMenu($data){
+        $this->db->insert("sub_menu", $data);
+    }
+
     private function get_submenus($menu_id) {
         // Ambil submenu berdasarkan menu_id
         $this->db->select('name, url'); // Pastikan kolom "name" ada di tabel

@@ -15,7 +15,8 @@ class Category extends CI_Controller {
         $categories = $this->category_model->getAll();
         $dataCategorylist = [];
         foreach($categories as $category){
-			$productSize = count($this->product_model->getByCategoryId($category['id']));
+            $products = $this->product_model->getByCategoryId($category['id']);
+			$productSize = is_countable($products) ? count($products) : 0;
 			$dataCategorylist[] = [
 				"id" => $category['id'],
 				"name"=> $category['name'],
