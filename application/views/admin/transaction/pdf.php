@@ -21,7 +21,7 @@
         </style>
     </head>
     <body>
-        <h1 style="margin-bottom: 16px;font-weight: bold; font-size: 32px;">Products</h1>
+        <h1 style="margin-bottom: 16px;font-weight: bold; font-size: 32px;">Transactions</h1>
         <table>
             <thead>
                 <tr>

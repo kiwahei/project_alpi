@@ -217,7 +217,7 @@ class Transaction extends CI_Controller
 
         $mpdf = new Mpdf();
         $mpdf->WriteHTML($html);
-        $mpdf->Output('product.pdf', 'D'); 
+        $mpdf->Output('Transaction.pdf', 'D'); 
 
         redirect('/admin/transaction/all');
     }

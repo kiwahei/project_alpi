@@ -26,11 +26,11 @@
                 <form method="POST" enctype="multipart/form-data" action="<?= base_url()?>admin/category/store">
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Fufufafa">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Insert Product Name">
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
-                        <input type="text" class="form-control" id="description" name="description" placeholder="insert product description">
+                        <input type="text" class="form-control" id="description" name="description" placeholder="Insert Product Description">
                     </div>
                     <div class="mb-3">
                         <label for="image" class="form-label">Image</label>

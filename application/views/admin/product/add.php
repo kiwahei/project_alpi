@@ -22,15 +22,15 @@
                 <form method="POST" action="<?= base_url()?>admin/product/store" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Fufufafa">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Insert Categori Name">
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
-                        <input type="text" class="form-control" id="description" name="description" placeholder="insert product description">
+                        <input type="text" class="form-control" id="description" name="description" placeholder="Insert Categori Description">
                     </div>
                     <div class="mb-3">
                         <label for="price" class="form-label">Price</label>
-                        <input type="number" class="form-control" id="price" name="price" placeholder="insert product price">
+                        <input type="number" class="form-control" id="price" name="price" placeholder="Insert Product Price">
                     </div>
                     <div class="mb-3">
                         <label for="price" class="form-label">Category</label>
