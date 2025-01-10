@@ -18,12 +18,7 @@ class Payment_Model extends CI_Model {
 
     public function getById($id){
         $query = $this->db->get_where($this->table, array('id' => $id));
-        if ($query->num_rows() > 0) {
-            return $query->row(); 
-        } else {
-            return null;  
-        }
-       
+        return $query->row(); 
     }
 
     public function add($data){

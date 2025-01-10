@@ -22,10 +22,11 @@ class Dashboard extends CI_Controller {
         foreach($transactions as $transaction){
             $totalReveneuTransaction += $transaction["total_price"];
         }
-
-        $totalProduct = count($this->product_model->getAll());
-        $totalTransaction = count($this->transaction_model->getAll());
-        $totalUser = count($this->User_model->getAll());
+        $products = $this->product_model->getAll();
+        $users = $this->User_model->getAll();
+        $totalProduct = is_countable($products) ? count($products) : 0;;
+        $totalTransaction = is_countable($transaction) ? count($transactions) : 0;;
+        $totalUser = is_countable($users) ? count($users) : 0;
 
 
 

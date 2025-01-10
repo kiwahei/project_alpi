@@ -29,22 +29,13 @@ class Product_Model extends CI_Model {
 
     public function getById($id){
         $query = $this->db->get_where($this->table, array('id' => $id));
-        if ($query->num_rows() > 0) {
-            return $query->row(); 
-        } else {
-            return null;  
-        }
-       
+        return $query->row(); 
     }
+       
 
     public function getByCategoryId($id){
         $query = $this->db->get_where($this->table, array('category_id' => $id));
-        if ($query->num_rows() > 0) {
-            return $query->result_array(); 
-        } else {
-            return null;  
-        }
-       
+        return $query->result_array(); 
     }
 
     public function add($data){
