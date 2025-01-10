@@ -39,7 +39,6 @@
                             <td><?= $t["id"] ?></td>
                             <td><?= $t["user"]->email ?></td>
                             <td class="text-end">
-                                <a href="<?= base_url() ?>admin/transaction/process/<?=  $t['id']?>" class="btn btn-success">Process</a>
                                 <a href="<?= base_url() ?>admin/transaction/view/<?=  $t['id']?>" class="btn btn-primary">View</a>
                                 <a href="<?= base_url() ?>admin/transaction/delete/" class="btn btn-danger">Delete</a>
                             </td>

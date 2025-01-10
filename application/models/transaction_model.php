@@ -58,7 +58,7 @@ class Transaction_Model extends CI_Model {
 
 
     public function complete($trxId){
-        $this->db->set('status', "COMPLETE");
+        $this->db->set('status', "COMPLETED");
         $this->db->where('id', $trxId);
         $this->db->update($this->table);
     }
